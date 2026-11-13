@@ -46,3 +46,4 @@ scripts/.cache/
 
 .vercel
 .env*
+/gate-a/
