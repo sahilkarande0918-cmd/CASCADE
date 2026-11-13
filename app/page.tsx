@@ -42,7 +42,7 @@ export default function Home() {
               <ul className="tabular mt-4 grid gap-2 text-[16px]" data-ui>
                 {[tower, clinic, hospital].filter(Boolean).map((x) => (
                   <li key={x.name} className="flex justify-between gap-4 rounded-xl bg-cream/10 px-4 py-3">
-                    <span>{x.kind}: {x.name}</span>
+                    <span>{x.name.startsWith(x.kind) ? x.name : `${x.kind}: ${x.name}`}</span>
                     <span className="text-amber">T+{hhmm(x.ttf)}</span>
                   </li>
                 ))}

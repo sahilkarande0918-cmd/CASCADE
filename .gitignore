@@ -43,3 +43,6 @@ scripts/.cache/
 /public/maplibre/
 /.shots/
 /.taste-skill/
+
+.vercel
+.env*

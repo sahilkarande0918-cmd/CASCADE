@@ -33,7 +33,7 @@ export default function Method() {
         <Sky />
         <div className="px-4 pt-4"><NavPill /></div>
         <div className="mx-auto mt-[9vh] max-w-5xl px-5">
-          <h1 className="text-[clamp(2.4rem,1.6rem+4vw,5rem)]">How Cascade works,<br />and where it doesn’t.</h1>
+          <h1 className="text-[clamp(1.9rem,1.2rem+4vw,5rem)]">How Cascade works,<br />and where it doesn’t.</h1>
         </div>
       </div>
 
