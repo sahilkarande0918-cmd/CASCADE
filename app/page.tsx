@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Board from '@/components/landing/Board';
 import Hero from '@/components/landing/Hero';
+import SmoothScroll from '@/components/landing/SmoothScroll';
 import Sky from '@/components/Sky';
 import Reveal from '@/components/landing/Reveal';
 import facts from '@/lib/landing-facts.json';
@@ -12,6 +13,7 @@ export default function Home() {
   const [tower, clinic, hospital] = facts.root.first;
   return (
     <main className="bg-cream">
+      <SmoothScroll />
       <Hero />
 
       <section id="how" className="mx-auto max-w-6xl px-5 py-28 md:py-40">

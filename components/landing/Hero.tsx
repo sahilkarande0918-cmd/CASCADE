@@ -1,26 +1,21 @@
-'use client';
-
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { useState } from 'react';
 import NavPill from '@/components/NavPill';
 import Sky from '@/components/Sky';
-import { hhmm } from '@/lib/labels';
-import type { ModelStatus } from './CityModel';
 
-const CityModel = dynamic(() => import('./CityModel'), { ssr: false });
-
+// Real footage instead of a 3D model: water through the Obere Schleuse sluice
+// in Thun (CC0, Nachtbold, Wikimedia Commons). One decoded video keeps the page
+// smooth, and it shows the kind of infrastructure the simulator models. The
+// headline and the frame drift at different speeds with the scroll (SmoothScroll).
 export default function Hero() {
-  const [status, setStatus] = useState<ModelStatus | null>(null);
   return (
-    <header className="relative isolate flex min-h-[100svh] flex-col overflow-hidden">
+    <header className="relative isolate overflow-hidden pb-24">
       <Sky />
       <div className="relative z-20 px-4 pt-4 sm:px-6">
         <NavPill />
       </div>
 
-      <div className="pointer-events-none relative z-10 mx-auto mt-[5vh] flex max-w-4xl flex-col items-center px-5 text-center [&_a]:pointer-events-auto">
-        <p className="rise inline-flex items-center gap-2 rounded-full bg-cream/70 px-3 py-1 text-[14px] backdrop-blur" data-in>
+      <div className="relative z-10 mx-auto mt-[7vh] flex max-w-4xl flex-col items-center px-5 text-center" data-speed="0.25">
+        <p className="inline-flex items-center gap-2 rounded-full bg-cream/80 px-3 py-1 text-[14px]">
           <span className="size-2 rounded-full bg-amber" aria-hidden />
           Open map data, simulated scenarios
         </p>
@@ -36,24 +31,24 @@ export default function Hero() {
         </Link>
       </div>
 
-      <div className="absolute inset-0 z-0">
-        <CityModel onStatus={setStatus} />
-        <noscript>
-          <p className="text-center text-muted">The 3D model needs JavaScript. The simulator itself is at /dashboard.</p>
-        </noscript>
-      </div>
-
-      <div className="relative z-10 mt-auto mb-6 flex justify-center px-4">
-        <p className="tabular rounded-full bg-cream/80 px-4 py-2 text-center text-[14px] text-ink/80 backdrop-blur" aria-live="polite">
-          {status ? (
-            <>
-              Pune, simulated 2 m flood · T+{hhmm(status.hours)} · river {status.stage.toFixed(1)} m ·{' '}
-              <span className="text-signal-ink">{status.down} facilities down</span>
-              {status.failed ? <> · failed by you: {status.failed}</> : <> · click an orb to fail it</>}
-            </>
-          ) : 'Loading Pune…'}
-        </p>
-      </div>
+      <figure className="relative z-10 mx-auto mt-14 w-[min(1120px,92vw)]" data-speed="-0.12">
+        <div className="overflow-hidden rounded-[2rem] shadow-[0_50px_100px_-50px_color-mix(in_oklab,var(--ink)_55%,transparent)]">
+          <video
+            className="aspect-video w-full object-cover"
+            src="/media/hero.mp4"
+            poster="/media/hero-poster.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Water rushing through the Obere Schleuse sluice gates in Thun"
+          />
+        </div>
+        <figcaption className="mt-3 text-center text-[14px] text-ink/60">
+          Water infrastructure is where cascades start. Footage: Obere Schleuse, Thun, by Nachtbold (CC0).
+        </figcaption>
+      </figure>
     </header>
   );
 }

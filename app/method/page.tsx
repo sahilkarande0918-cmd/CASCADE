@@ -4,7 +4,6 @@ import NavPill from '@/components/NavPill';
 import Sky from '@/components/Sky';
 import { ASSUMPTION_META, type AssumptionKey } from '@/lib/assumptions';
 import { CITIES } from '@/lib/cities';
-import block from '@/public/media/pune-block.json';
 
 export const metadata: Metadata = { title: 'Method · Cascade' };
 
@@ -109,7 +108,6 @@ export default function Method() {
             <li>Backup durations, thresholds and weights are generic defaults, not facility surveys.</li>
             <li>OSM coverage varies: Pune has 8 mapped substations and 2 telecom masts in the area, so single substations look more critical than they may be.</li>
             <li>Restoration is modelled only for the mobile-substation intervention; repair crews and failover switching are not modelled.</li>
-            <li>The landing page’s scale model uses OSM building footprints; only {block.tagged} of {block.buildings.length.toLocaleString('en-US')} have a mapped height, the rest use typical heights for their type, and all are exaggerated four times.</li>
           </ul>
         </Section>
 
@@ -117,9 +115,8 @@ export default function Method() {
           <ul className="space-y-2">
             <li>Map data © OpenStreetMap contributors (ODbL). Basemap tiles: OpenFreeMap.</li>
             <li>Elevation: AWS open Terrain Tiles (Mapzen terrain, derived from SRTM and other public sources).</li>
-            <li>Satellite imagery: “Sentinel-2 cloudless 2016” by EOX IT Services GmbH, CC BY 4.0, contains modified Copernicus Sentinel data 2016.</li>
+            <li>Landing footage: “Obere Schleuse in Thun” by Nachtbold, CC0, via Wikimedia Commons.</li>
             <li>Sky footage: “2011-08-05 21-45-00-timelapse-clouds-seloncourt” by Thomas Bresson, CC BY 3.0, via Wikimedia Commons; cropped, colour graded and looped.</li>
-            <li>Rock texture: “Rock Face” from Poly Haven, CC0.</li>
             <li>Weather and river discharge: Open-Meteo (CC BY 4.0), GloFAS via the Copernicus Emergency Management Service.</li>
             <li>Explainer video: footage by Marsupium (CC0), Nachtbold (CC0) and “City skyline (time lapse)” (CC BY 3.0) via Wikimedia Commons; music “Ambient Documentary Build up” by tyops (CC BY 4.0) and sound effects by Joao_Janz (CC0) via Freesound; voiceover generated with Gnani Vachana. Full list in CREDITS.md.</li>
           </ul>
