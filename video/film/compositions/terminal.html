@@ -1,0 +1,60 @@
+<template>
+  <style>
+    @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+    #terminal { position: absolute; inset: 0; overflow: hidden; background: #1A0A22; font-family: 'Stack Sans Text', sans-serif; }
+    #term-push { position: absolute; inset: 0; }
+    #term-video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    #term-veil { position: absolute; inset: 0; background: rgba(26, 10, 34, 0.38); }
+    #term-card { position: absolute; left: 260px; top: 190px; width: 1400px; border-radius: 22px; background: rgba(255, 244, 232, 0.94); box-shadow: 0 40px 90px -40px rgba(26, 10, 34, 0.7); overflow: hidden; }
+    #term-bar { display: flex; align-items: center; gap: 10px; padding: 18px 24px; background: rgba(255, 211, 174, 0.55); }
+    #term-bar i { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+    #term-bar b { margin-left: 14px; font-weight: 500; font-size: 26px; color: #1A0A22; }
+    #term-bar em { margin-left: auto; font-style: normal; font-size: 28px; color: rgba(26, 10, 34, 0.75); }
+    #term-body { padding: 26px 30px 30px; font-family: 'JetBrains Mono', monospace; font-size: 28px; color: #1A0A22; }
+    #term-cmd { white-space: nowrap; }
+    #term-cmd .caret { display: inline-block; width: 12px; height: 26px; margin-left: 4px; background: #1A0A22; vertical-align: -4px; }
+    #term-note { margin-top: 8px; color: rgba(26, 10, 34, 0.75); font-size: 24px; }
+    .row { position: relative; display: flex; align-items: center; justify-content: space-between; margin-top: 14px; padding: 16px 20px; border-radius: 12px; background: rgba(255, 176, 32, 0.28); }
+    .row .who { white-space: nowrap; }
+    .row .st { position: relative; width: 380px; height: 30px; text-align: right; }
+    .row .st span { position: absolute; right: 0; top: 0; white-space: nowrap; font-weight: 500; }
+    .row .bk { color: #1A0A22; }
+    .row .fl { color: #FFF4E8; opacity: 0; }
+  </style>
+  <div data-hf-id="hf-mtr3" id="terminal" data-composition-id="terminal" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-rjfo" id="term-push">
+      <video data-color-grading="{&quot;preset&quot;:null,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:0.05,&quot;contrast&quot;:0,&quot;highlights&quot;:0,&quot;shadows&quot;:0,&quot;whites&quot;:0,&quot;blacks&quot;:0,&quot;temperature&quot;:0.3,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.2,&quot;saturation&quot;:0},&quot;details&quot;:{&quot;vignette&quot;:0,&quot;vignetteMidpoint&quot;:0.5,&quot;vignetteRoundness&quot;:0,&quot;vignetteFeather&quot;:0.65,&quot;grain&quot;:0.1,&quot;grainSize&quot;:0.25,&quot;grainRoughness&quot;:0.5},&quot;effects&quot;:{&quot;blur&quot;:0.5,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" data-hf-id="hf-pyxe" id="term-video" class="clip" src="assets/clips/sluice.mp4" data-start="0" data-duration="9.3" data-track-index="0" muted playsinline></video>
+    </div>
+    <div data-hf-id="hf-fd7c" id="term-veil"></div>
+    <div data-hf-id="hf-xc1u" id="term-card">
+      <div data-hf-id="hf-7qbb" id="term-bar"><i data-hf-id="hf-l3vx" style="background:#FF6B5B"></i><i data-hf-id="hf-27z4" style="background:#FFB020"></i><i data-hf-id="hf-fbym" style="background:#2EC4B6"></i><b data-hf-id="hf-loai">cascade · Pune</b><em data-hf-id="hf-0mnn">Simulated scenario</em></div>
+      <div data-hf-id="hf-8kg4" id="term-body">
+        <div data-hf-id="hf-snpk" id="term-cmd"><span data-hf-id="hf-bss9" id="term-typed">fail("Parvati Water Treatment Plant")</span><span data-hf-id="hf-vif4" class="caret" id="term-caret"></span></div>
+        <div data-hf-id="hf-6e0n" id="term-note">simulating 72 h in 15-minute steps</div>
+        <div data-hf-id="hf-fm4l" class="row" id="row-0"><span data-hf-id="hf-0jvt" class="who">water_works · Parvati Water Treatment Plant</span><span data-hf-id="hf-7km0" class="st"><span data-hf-id="hf-gnp0" class="bk"></span><span data-hf-id="hf-fgff" class="fl">FAILED  T+0h</span></span></div>
+        <div data-hf-id="hf-eugs" class="row" id="row-1"><span data-hf-id="hf-tsdo" class="who">water_tower · Water tower #3429</span><span data-hf-id="hf-vwj4" class="st"><span data-hf-id="hf-f5a8" class="bk">on backup · 8 h tank</span><span data-hf-id="hf-o0tv" class="fl">FAILED  T+8h</span></span></div>
+        <div data-hf-id="hf-nicn" class="row" id="row-2"><span data-hf-id="hf-nsqz" class="who">clinic · Dr. Mudgerikar Clinic</span><span data-hf-id="hf-upm1" class="st"><span data-hf-id="hf-yxdk" class="bk">on backup · 8 h tank</span><span data-hf-id="hf-fkg0" class="fl">FAILED  T+16h</span></span></div>
+        <div data-hf-id="hf-jk8m" class="row" id="row-3"><span data-hf-id="hf-3fqg" class="who">hospital · Sardar Patel Cantonment General</span><span data-hf-id="hf-v3x2" class="st"><span data-hf-id="hf-s4sz" class="bk">on backup · 24 h tanks</span><span data-hf-id="hf-felu" class="fl">FAILED  T+32h</span></span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#term-push', { scale: 1.06 }, { scale: 1.1, duration: 9.3, ease: 'none' }, 0);
+    tl.fromTo('#term-card', { opacity: 0, y: 40, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'expo.out' }, 0.1);
+    // The command types out, a character every frame or so.
+    tl.fromTo('#term-typed', { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 1.1, ease: 'steps(38)' }, 0.4);
+    tl.to('#term-caret', { opacity: 0, duration: 0.01 }, 1.6);
+    tl.fromTo('#term-note', { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' }, 1.5);
+    // Rows arrive on backup, then flip to failed on the hour the voice names.
+    const rows = [[1.62, 1.76], [2.6, 4.0], [4.4, 5.36], [6.0, 8.08]];
+    rows.forEach(([inAt, failAt], i) => {
+      tl.fromTo('#row-' + i, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: 'power4.out' }, inAt);
+      tl.to('#row-' + i, { backgroundColor: '#FF4B2B', duration: 0.12, ease: 'power2.out' }, failAt);
+      tl.to('#row-' + i + ' .who', { color: '#FFF4E8', duration: 0.12 }, failAt);
+      tl.to('#row-' + i + ' .bk', { opacity: 0, duration: 0.1 }, failAt);
+      tl.to('#row-' + i + ' .fl', { opacity: 1, duration: 0.12 }, failAt);
+    });
+    window.__timelines['terminal'] = tl;
+  </script>
+</template>

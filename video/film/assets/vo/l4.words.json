@@ -1,0 +1,176 @@
+[
+  {
+    "id": "w0",
+    "text": "Cascade",
+    "start": 0,
+    "end": 0.56
+  },
+  {
+    "id": "w1",
+    "text": "reads",
+    "start": 0.56,
+    "end": 0.8
+  },
+  {
+    "id": "w2",
+    "text": "a",
+    "start": 0.8,
+    "end": 0.88
+  },
+  {
+    "id": "w3",
+    "text": "real",
+    "start": 0.88,
+    "end": 1.12
+  },
+  {
+    "id": "w4",
+    "text": "city",
+    "start": 1.12,
+    "end": 1.36
+  },
+  {
+    "id": "w5",
+    "text": "from",
+    "start": 1.36,
+    "end": 1.52
+  },
+  {
+    "id": "w6",
+    "text": "open",
+    "start": 1.52,
+    "end": 1.76
+  },
+  {
+    "id": "w7",
+    "text": "map",
+    "start": 1.76,
+    "end": 2.08
+  },
+  {
+    "id": "w8",
+    "text": "data,",
+    "start": 2.08,
+    "end": 2.48
+  },
+  {
+    "id": "w9",
+    "text": "and",
+    "start": 2.48,
+    "end": 2.72
+  },
+  {
+    "id": "w10",
+    "text": "joins",
+    "start": 2.72,
+    "end": 2.96
+  },
+  {
+    "id": "w11",
+    "text": "every",
+    "start": 3.12,
+    "end": 3.36
+  },
+  {
+    "id": "w12",
+    "text": "substation,",
+    "start": 3.36,
+    "end": 4.16
+  },
+  {
+    "id": "w13",
+    "text": "pump,",
+    "start": 4.32,
+    "end": 4.96
+  },
+  {
+    "id": "w14",
+    "text": "mast,",
+    "start": 4.96,
+    "end": 5.44
+  },
+  {
+    "id": "w15",
+    "text": "and",
+    "start": 5.44,
+    "end": 5.6
+  },
+  {
+    "id": "w16",
+    "text": "hospital",
+    "start": 5.6,
+    "end": 6
+  },
+  {
+    "id": "w17",
+    "text": "into",
+    "start": 6,
+    "end": 6.24
+  },
+  {
+    "id": "w18",
+    "text": "one",
+    "start": 6.24,
+    "end": 6.4
+  },
+  {
+    "id": "w19",
+    "text": "dependency",
+    "start": 6.4,
+    "end": 6.96
+  },
+  {
+    "id": "w20",
+    "text": "graph.",
+    "start": 6.96,
+    "end": 7.52
+  },
+  {
+    "id": "w21",
+    "text": "Every",
+    "start": 7.52,
+    "end": 7.84
+  },
+  {
+    "id": "w22",
+    "text": "guess",
+    "start": 7.84,
+    "end": 8.16
+  },
+  {
+    "id": "w23",
+    "text": "link",
+    "start": 8.16,
+    "end": 8.48
+  },
+  {
+    "id": "w24",
+    "text": "is",
+    "start": 8.48,
+    "end": 8.56
+  },
+  {
+    "id": "w25",
+    "text": "marked",
+    "start": 8.56,
+    "end": 8.8
+  },
+  {
+    "id": "w26",
+    "text": "as",
+    "start": 8.8,
+    "end": 8.88
+  },
+  {
+    "id": "w27",
+    "text": "a",
+    "start": 8.88,
+    "end": 8.96
+  },
+  {
+    "id": "w28",
+    "text": "guess.",
+    "start": 8.96,
+    "end": 9.36
+  }
+]

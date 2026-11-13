@@ -1,0 +1,68 @@
+[
+  {
+    "id": "w0",
+    "text": "Three",
+    "start": 0,
+    "end": 0.32
+  },
+  {
+    "id": "w1",
+    "text": "hundred",
+    "start": 0.32,
+    "end": 0.56
+  },
+  {
+    "id": "w2",
+    "text": "and",
+    "start": 0.56,
+    "end": 0.64
+  },
+  {
+    "id": "w3",
+    "text": "twelve",
+    "start": 0.64,
+    "end": 1.04
+  },
+  {
+    "id": "w4",
+    "text": "facilities",
+    "start": 1.04,
+    "end": 1.6
+  },
+  {
+    "id": "w5",
+    "text": "from",
+    "start": 1.76,
+    "end": 2
+  },
+  {
+    "id": "w6",
+    "text": "one",
+    "start": 2,
+    "end": 2.16
+  },
+  {
+    "id": "w7",
+    "text": "failure,",
+    "start": 2.24,
+    "end": 2.88
+  },
+  {
+    "id": "w8",
+    "text": "hour",
+    "start": 2.88,
+    "end": 3.2
+  },
+  {
+    "id": "w9",
+    "text": "by",
+    "start": 3.2,
+    "end": 3.36
+  },
+  {
+    "id": "w10",
+    "text": "hour.",
+    "start": 3.36,
+    "end": 3.68
+  }
+]

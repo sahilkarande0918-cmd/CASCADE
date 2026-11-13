@@ -1,0 +1,42 @@
+<template>
+  <style>
+    @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+    @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+    #proof { position: absolute; inset: 0; overflow: hidden; background: #FFF4E8; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; }
+    #proof-plans { position: absolute; inset: 0; }
+    #proof-h { position: absolute; left: 192px; top: 300px; width: 640px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; font-size: 80px; line-height: 1.02; letter-spacing: -0.03em; }
+    #proof-p { position: absolute; left: 192px; top: 520px; width: 600px; font-size: 30px; line-height: 1.35; color: rgba(26, 10, 34, 0.75); }
+    #proof-window { position: absolute; left: 960px; top: 110px; width: 820px; height: 860px; border-radius: 28px; overflow: hidden; background: #FFD3AE; box-shadow: 0 40px 90px -45px rgba(26, 10, 34, 0.6); }
+    #proof-rail { position: absolute; left: 0; top: 0; width: 820px; height: 1720px; }
+    #proof-trace { position: absolute; inset: 0; }
+    #proof-push { position: absolute; inset: 0; }
+    #proof-video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    #proof-tag { position: absolute; left: 192px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+    #proof-ring { position: absolute; left: 1344px; top: 548px; width: 548px; height: 232px; border-radius: 18px; border: 5px solid #FF6B5B; box-shadow: 0 0 0 9999px rgba(26, 10, 34, 0.18); }
+  </style>
+  <div id="proof" data-composition-id="proof" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div id="proof-plans" class="clip" data-start="0" data-duration="2.2" data-track-index="0">
+      <h2 id="proof-h">Compare plans side by side.</h2>
+      <p id="proof-p">The optimizer’s pick against doing nothing.</p>
+      <div id="proof-window" data-layout-allow-overflow><img id="proof-rail" src="assets/clips/plans-rail.png" alt="Plan comparison and optimizer panels from the Cascade dashboard" /></div>
+    </div>
+    <div id="proof-trace">
+      <div id="proof-push"><video id="proof-video" class="clip" src="assets/clips/rec-trace.mp4" data-start="2.2" data-duration="4.6" data-track-index="1" muted playsinline></video></div>
+      <div id="proof-tag">Click any failure: the chain that caused it</div>
+      <div id="proof-ring"></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#proof-h', { opacity: 0, filter: 'blur(8px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.2, ease: 'power4.out' }, 0.05);
+    tl.fromTo('#proof-p', { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.35);
+    tl.fromTo('#proof-window', { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.5, ease: 'expo.out' }, 0.05);
+    // Pan from the comparison table down into the optimizer's options.
+    tl.fromTo('#proof-rail', { y: -60 }, { y: -560, duration: 2.0, ease: 'power2.inOut' }, 0.2);
+    // The trace: a punch-in lands it, then the chain is ringed on "why".
+    tl.fromTo('#proof-push', { scale: 1.06 }, { scale: 1, duration: 0.5, ease: 'expo.out' }, 2.2);
+    tl.fromTo('#proof-tag', { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power4.out' }, 2.35);
+    tl.fromTo('#proof-ring', { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.35, ease: 'expo.out' }, 3.1);
+    window.__timelines['proof'] = tl;
+  </script>
+</template>

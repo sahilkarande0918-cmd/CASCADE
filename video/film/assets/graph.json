@@ -1,0 +1,138 @@
+{
+  "hub": {
+    "id": "sw206835629",
+    "name": "Sinhagad Road Substation (Parvati)",
+    "kind": "Substation"
+  },
+  "ring1": [
+    {
+      "id": "hn1305056480",
+      "name": "Madhukar General Hospital",
+      "kind": "Hospital",
+      "type": "power",
+      "provenance": "inferred",
+      "confidence": 0.53
+    },
+    {
+      "id": "fn1705497109",
+      "name": "Indian Oil",
+      "kind": "Fuel station",
+      "type": "power",
+      "provenance": "inferred",
+      "confidence": 0.9
+    },
+    {
+      "id": "cn7043026430",
+      "name": "Kamal Nursing Home, Pune",
+      "kind": "Clinic",
+      "type": "power",
+      "provenance": "inferred",
+      "confidence": 0.53
+    },
+    {
+      "id": "ww206835628",
+      "name": "Parvati Water Treatment Plant",
+      "kind": "Water works",
+      "type": "power",
+      "provenance": "inferred",
+      "confidence": 0.62
+    },
+    {
+      "id": "fn3504368176",
+      "name": "Bharat Petroleum",
+      "kind": "Fuel station",
+      "type": "power",
+      "provenance": "inferred",
+      "confidence": 0.57
+    },
+    {
+      "id": "hn3719797432",
+      "name": "Patil Hospital",
+      "kind": "Hospital",
+      "type": "power",
+      "provenance": "inferred",
+      "confidence": 0.54
+    },
+    {
+      "id": "hn7043399086",
+      "name": "Sahyadri Hospital, Bibvewadi",
+      "kind": "Hospital",
+      "type": "power",
+      "provenance": "inferred",
+      "confidence": 0.57
+    },
+    {
+      "id": "hn7043763362",
+      "name": "Shree Balaji Eye Hospital",
+      "kind": "Hospital",
+      "type": "power",
+      "provenance": "inferred",
+      "confidence": 0.54
+    }
+  ],
+  "ring2": [
+    {
+      "id": "hn7049524369",
+      "name": "Jagtap Hospital",
+      "kind": "Hospital",
+      "parent": "fn1705497109",
+      "type": "access",
+      "provenance": "inferred",
+      "confidence": 0.8
+    },
+    {
+      "id": "hn7053195972",
+      "name": "Dr.Purohit Nursing Home",
+      "kind": "Hospital",
+      "parent": "fn1705497109",
+      "type": "access",
+      "provenance": "inferred",
+      "confidence": 0.89
+    },
+    {
+      "id": "hn7054762489",
+      "name": "Chinchanikar Hospital",
+      "kind": "Hospital",
+      "parent": "fn1705497109",
+      "type": "access",
+      "provenance": "inferred",
+      "confidence": 0.81
+    },
+    {
+      "id": "wn2280623429",
+      "name": "Water tower #3429",
+      "kind": "Water tower",
+      "parent": "ww206835628",
+      "type": "water",
+      "provenance": "inferred",
+      "confidence": 0.5
+    },
+    {
+      "id": "ww359931064",
+      "name": "Water tower #1064",
+      "kind": "Water tower",
+      "parent": "ww206835628",
+      "type": "water",
+      "provenance": "inferred",
+      "confidence": 0.52
+    },
+    {
+      "id": "ww359969337",
+      "name": "Water tower #9337",
+      "kind": "Water tower",
+      "parent": "ww206835628",
+      "type": "water",
+      "provenance": "inferred",
+      "confidence": 0.51
+    },
+    {
+      "id": "hn7062497106",
+      "name": "Patil Hospital - Pune",
+      "kind": "Hospital",
+      "parent": "fn3504368176",
+      "type": "access",
+      "provenance": "inferred",
+      "confidence": 0.96
+    }
+  ]
+}

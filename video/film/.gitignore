@@ -1,0 +1,9 @@
+# Regenerable or heavy: raw downloads, recorded frames, encoded clips, renders, tool state.
+/assets/rec/
+/assets/clips/
+/assets/*.webm
+/assets/*-poster.jpg
+/assets/sky.mp4
+/renders/
+/.hyperframes/
+/node_modules/

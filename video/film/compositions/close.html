@@ -1,0 +1,47 @@
+<template>
+  <style>
+    @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+    @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+    #close { position: absolute; inset: 0; overflow: hidden; background: #FFF4E8; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; }
+    #close-push { position: absolute; inset: 0; }
+    #close-video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    #close-mist { position: absolute; left: 0; right: 0; bottom: 0; height: 520px; background: linear-gradient(to top, rgba(255, 244, 232, 0.95), rgba(255, 244, 232, 0)); }
+    #close-lock { position: absolute; left: 0; right: 0; top: 330px; display: flex; align-items: center; justify-content: center; gap: 30px; }
+    #close-mark { width: 120px; height: 120px; border-radius: 50%; background: #FFB020; display: grid; place-items: center; }
+    #close-word { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; font-size: 168px; letter-spacing: -0.04em; line-height: 1; }
+    #close-tag { position: absolute; left: 0; right: 0; top: 540px; text-align: center; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; font-size: 60px; letter-spacing: -0.02em; }
+    #close-url { position: absolute; left: 0; right: 0; top: 660px; text-align: center; font-size: 30px; font-weight: 500; }
+    #close-note { position: absolute; left: 0; right: 0; top: 716px; text-align: center; font-size: 28px; color: rgba(26, 10, 34, 0.78); }
+    #close-credits { position: absolute; left: 200px; right: 200px; bottom: 110px; text-align: center; font-size: 22px; line-height: 1.45; color: rgba(26, 10, 34, 0.78); }
+    #close-flash { position: absolute; inset: 0; background: #FFF4E8; }
+  </style>
+  <div data-hf-id="hf-u3hv" id="close" data-composition-id="close" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-g258" id="close-push">
+      <video data-color-grading="{&quot;preset&quot;:null,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:0,&quot;contrast&quot;:0,&quot;highlights&quot;:0,&quot;shadows&quot;:0,&quot;whites&quot;:0,&quot;blacks&quot;:0,&quot;temperature&quot;:0,&quot;tint&quot;:0,&quot;vibrance&quot;:0,&quot;saturation&quot;:0},&quot;details&quot;:{&quot;vignette&quot;:0,&quot;vignetteMidpoint&quot;:0.5,&quot;vignetteRoundness&quot;:0,&quot;vignetteFeather&quot;:0.65,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.25,&quot;grainRoughness&quot;:0.5},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" data-hf-id="hf-oxd8" id="close-video" class="clip" src="assets/sky.mp4" data-start="0" data-duration="8" data-track-index="0" muted playsinline></video>
+    </div>
+    <div data-hf-id="hf-tc0v" id="close-mist"></div>
+    <div data-hf-id="hf-vs9p" id="close-lock">
+      <div data-hf-id="hf-mhrf" id="close-mark">
+        <svg data-hf-id="hf-vain" width="62" height="62" viewBox="0 0 16 16" aria-hidden="true"><circle data-hf-id="hf-xmau" cx="4" cy="11" r="2.2" fill="#1A0A22" /><circle data-hf-id="hf-5smw" cx="12" cy="5" r="2.2" fill="#1A0A22" opacity="0.35" /><path data-hf-id="hf-7kca" d="M5.6 9.6 10.4 6.4" stroke="#1A0A22" stroke-width="1.4" stroke-linecap="round" /></svg>
+      </div>
+      <div data-hf-id="hf-nt0q" id="close-word">Cascade</div>
+    </div>
+    <div data-hf-id="hf-1re1" id="close-tag">Watch a city fail. Then plan around it.</div>
+    <div data-hf-id="hf-3n8f" id="close-url" data-var-text="url">github.com/sahilkarande0918-cmd/CASCADE</div>
+    <div data-hf-id="hf-nioc" id="close-note">Simulated scenario. Assumptions editable.</div>
+    <div data-hf-id="hf-9na9" id="close-credits">Footage: Marsupium (CC0), Nachtbold (CC0), “City skyline (time lapse)” (CC BY 3.0), Thomas Bresson (CC BY 3.0), all via Wikimedia Commons. Music: “Ambient Documentary Build up” by tyops (CC BY 4.0). Voice: Gnani Vachana. Map data © OpenStreetMap contributors.</div>
+    <div data-hf-id="hf-hzvq" id="close-flash"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#close-flash', { opacity: 1 }, { opacity: 0, duration: 0.4, ease: 'power2.out' }, 0.05);
+    tl.fromTo('#close-push', { scale: 1.0 }, { scale: 1.04, duration: 8, ease: 'none' }, 0);
+    tl.fromTo('#close-mark', { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'expo.out' }, 0.7);
+    tl.fromTo('#close-word', { opacity: 0, filter: 'blur(10px)', x: -20 }, { opacity: 1, filter: 'blur(0px)', x: 0, duration: 0.35, ease: 'power4.out' }, 0.78);
+    tl.fromTo('#close-tag', { opacity: 0, filter: 'blur(8px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.3, ease: 'power4.out' }, 1.58);
+    tl.fromTo('#close-url', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power4.out' }, 3.4);
+    tl.fromTo('#close-note', { opacity: 0 }, { opacity: 1, duration: 0.35, ease: 'power2.out' }, 3.6);
+    tl.fromTo('#close-credits', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 3.9);
+    window.__timelines['close'] = tl;
+  </script>
+</template>

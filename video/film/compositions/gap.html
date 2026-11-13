@@ -1,0 +1,56 @@
+<template>
+  <style>
+    @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+    @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+    #gap { position: absolute; inset: 0; overflow: hidden; background: #1A0A22; font-family: 'Stack Sans Text', sans-serif; }
+    #gap-night { position: absolute; inset: 0; }
+    #gap-push { position: absolute; inset: 0; }
+    #gap-video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    .big { position: absolute; left: 0; right: 0; text-align: center; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1; color: #FFF4E8; font-size: 104px; }
+    .big span { display: inline-block; margin: 0 0.11em; }
+    #gap-a { top: 390px; }
+    #gap-b { top: 520px; }
+    .coral { color: #FF9A5A; }
+    #gap-day { position: absolute; inset: 0; background: #FFF4E8; }
+    #gap-chain { position: absolute; left: 192px; right: 192px; top: 470px; display: flex; align-items: center; justify-content: space-between; }
+    .sys { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; font-size: 96px; letter-spacing: -0.03em; color: #1A0A22; }
+    .link { flex: 1; height: 3px; margin: 0 26px; background: #FF6B5B; transform-origin: left center; }
+    #gap-under { position: absolute; left: 192px; right: 192px; top: 620px; height: 6px; border-radius: 3px; background: #FFB020; transform-origin: left center; }
+  </style>
+  <div data-hf-id="hf-sw8b" id="gap" data-composition-id="gap" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-zv5y" id="gap-night">
+      <div data-hf-id="hf-k6c0" id="gap-push">
+        <video data-color-grading="{&quot;preset&quot;:null,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:0.35,&quot;contrast&quot;:0,&quot;highlights&quot;:0,&quot;shadows&quot;:0.3,&quot;whites&quot;:0,&quot;blacks&quot;:0,&quot;temperature&quot;:0.35,&quot;tint&quot;:0.08,&quot;vibrance&quot;:0,&quot;saturation&quot;:0},&quot;details&quot;:{&quot;vignette&quot;:0,&quot;vignetteMidpoint&quot;:0.5,&quot;vignetteRoundness&quot;:0,&quot;vignetteFeather&quot;:0.65,&quot;grain&quot;:0.12,&quot;grainSize&quot;:0.25,&quot;grainRoughness&quot;:0.5},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" data-hf-id="hf-x8qq" id="gap-video" class="clip" src="assets/clips/skyline.mp4" data-start="0" data-duration="2.4" data-track-index="0" muted playsinline></video>
+      </div>
+      <div data-hf-id="hf-7ooa" class="big" id="gap-a"><span data-hf-id="hf-685e" id="ga-0">Cities</span><span data-hf-id="hf-lcvo" id="ga-1">don’t</span><span data-hf-id="hf-2fsz" id="ga-2">fail</span></div>
+      <div data-hf-id="hf-1iyh" class="big" id="gap-b"><span data-hf-id="hf-52ae" id="gb-0">one</span><span data-hf-id="hf-zdny" id="gb-1">system</span><span data-hf-id="hf-nziz" id="gb-2" class="coral">at a time.</span></div>
+    </div>
+    <div data-hf-id="hf-6oi9" id="gap-day" class="clip" data-start="2.3" data-duration="5.7" data-track-index="1">
+      <div data-hf-id="hf-h4pz" id="gap-chain">
+        <span data-hf-id="hf-pb0r" class="sys" id="sys-0">Power</span><span data-hf-id="hf-ko63" class="link" id="lk-0"></span>
+        <span data-hf-id="hf-zlui" class="sys" id="sys-1">Water</span><span data-hf-id="hf-gq22" class="link" id="lk-1"></span>
+        <span data-hf-id="hf-b9vj" class="sys" id="sys-2">Hospitals</span><span data-hf-id="hf-cry1" class="link" id="lk-2"></span>
+        <span data-hf-id="hf-6bro" class="sys" id="sys-3">Roads</span>
+      </div>
+      <div data-hf-id="hf-dbra" id="gap-under"></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const word = (sel, t) => tl.fromTo(sel, { opacity: 0, filter: 'blur(8px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.14, ease: 'power4.out' }, t);
+    tl.fromTo('#gap-push', { scale: 1.04 }, { scale: 1.08, duration: 2.4, ease: 'none' }, 0);
+    word('#ga-0', 0.4); word('#ga-1', 0.8); word('#ga-2', 1.04);
+    word('#gb-0', 1.36); word('#gb-1', 1.52);
+    tl.fromTo('#gb-2', { opacity: 0, filter: 'blur(8px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.28, ease: 'expo.out' }, 1.76);
+    // Each system lands on the word that names it; the link to the next draws as it is named.
+    const sys = [2.4, 3.12, 4.16, 4.96];
+    sys.forEach((t, i) => {
+      tl.fromTo('#sys-' + i, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: 'expo.out' }, t);
+      if (i < 3) tl.fromTo('#lk-' + i, { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: 'power4.out' }, t + 0.25);
+    });
+    // Once the cream frame cuts in, the night lines leave the stage entirely.
+    tl.set('#gap-a, #gap-b', { visibility: 'hidden' }, 2.32);
+    tl.fromTo('#gap-under', { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: 'power4.out' }, 5.8);
+    window.__timelines['gap'] = tl;
+  </script>
+</template>

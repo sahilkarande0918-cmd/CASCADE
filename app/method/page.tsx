@@ -121,6 +121,7 @@ export default function Method() {
             <li>Sky footage: “2011-08-05 21-45-00-timelapse-clouds-seloncourt” by Thomas Bresson, CC BY 3.0, via Wikimedia Commons; cropped, colour graded and looped.</li>
             <li>Rock texture: “Rock Face” from Poly Haven, CC0.</li>
             <li>Weather and river discharge: Open-Meteo (CC BY 4.0), GloFAS via the Copernicus Emergency Management Service.</li>
+            <li>Explainer video: footage by Marsupium (CC0), Nachtbold (CC0) and “City skyline (time lapse)” (CC BY 3.0) via Wikimedia Commons; music “Ambient Documentary Build up” by tyops (CC BY 4.0) and sound effects by Joao_Janz (CC0) via Freesound; voiceover generated with Gnani Vachana. Full list in CREDITS.md.</li>
           </ul>
           <p className="pt-4"><Link href="/dashboard" className="underline decoration-ink/30 underline-offset-4 hover:decoration-ink">Open the simulator</Link></p>
         </Section>

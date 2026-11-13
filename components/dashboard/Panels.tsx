@@ -80,25 +80,41 @@ function mcStats(mc: Mc | null, n: number, i: number) {
 // ---- explainer --------------------------------------------------------------
 
 export function ExplainerCard() {
+  // Poster first; the video loads and plays only when asked, so nothing autoplays with sound.
+  const [open, setOpen] = useState(false);
+  if (open) {
+    return (
+      <video
+        className="aspect-video w-full shrink-0 rounded-3xl bg-ink"
+        src="/video/cascade-explainer-720.mp4"
+        poster="/video/cascade-explainer-poster.jpg"
+        controls
+        autoPlay
+        playsInline
+        preload="metadata"
+        aria-label="Cascade, 60-second explainer"
+      >
+        <track kind="captions" src="/video/cascade-explainer.vtt" srcLang="en" label="English" default />
+      </video>
+    );
+  }
   return (
-    <figure
-      className="relative aspect-video shrink-0 overflow-hidden rounded-3xl bg-cover bg-center"
-      style={{ backgroundImage: 'url(/media/sky-poster.jpg)' }}
-      aria-label="60-second explainer video, coming soon"
+    <button
+      onClick={() => setOpen(true)}
+      className="group relative aspect-video w-full shrink-0 overflow-hidden rounded-3xl bg-cover bg-center text-left"
+      style={{ backgroundImage: 'url(/video/cascade-explainer-poster.jpg)' }}
+      aria-label="Play the 60-second explainer video"
     >
-      <div className="absolute inset-0 flex flex-col justify-between p-4">
-        <span className="self-start rounded-full bg-cream/80 px-3 py-1 text-[13px] backdrop-blur">Watch the 60-second explainer</span>
-        <div className="flex items-end justify-between">
-          <span className="font-display text-[22px] leading-tight">How a city<br />fails in order</span>
-          <span className="flex items-center gap-2">
-            <span className="tabular text-[13px] text-ink/70">1:00 · soon</span>
-            <span className="grid size-10 place-items-center rounded-full bg-amber text-ink" aria-hidden>
-              <svg width="12" height="14" viewBox="0 0 12 14"><path d="M0 0 12 7 0 14z" fill="currentColor" /></svg>
-            </span>
+      <span className="absolute inset-0 flex flex-col justify-between p-4">
+        <span className="self-start rounded-full bg-cream/85 px-3 py-1 text-[13px] backdrop-blur">Watch the 60-second explainer</span>
+        <span className="flex items-end justify-end gap-2">
+          <span className="tabular rounded-full bg-cream/85 px-2 py-0.5 text-[13px]">1:00</span>
+          <span className="grid size-11 place-items-center rounded-full bg-amber text-ink transition-transform group-hover:scale-105" aria-hidden>
+            <svg width="12" height="14" viewBox="0 0 12 14"><path d="M0 0 12 7 0 14z" fill="currentColor" /></svg>
           </span>
-        </div>
-      </div>
-    </figure>
+        </span>
+      </span>
+    </button>
   );
 }
 
@@ -657,7 +673,7 @@ export function PlansPanel({ city, st, update, cmp, editPlan, setEditPlan }: Sha
   return (
     <Card title="Plan comparison">
       <p className="mb-3 text-xs text-muted">Build up to three plans from the inspector, or load one from the optimizer. Compared against the baseline with nothing done.</p>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid gap-2">
         {st.plans.map((p, j) => (
           <div key={j} className={`rounded-lg border p-2 ${editPlan === j ? 'border-amber bg-amber/15' : 'border-transparent'}`}>
             <div className="flex items-center justify-between">
