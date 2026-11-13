@@ -16,6 +16,18 @@ export default function Home() {
       <SmoothScroll />
       <Hero />
 
+      <section id="explainer" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+        <Reveal>
+          <h2 className="rise text-[clamp(2rem,1.3rem+3.2vw,4rem)]">Cascade in 60 seconds.</h2>
+          <p className="rise mt-4 max-w-2xl text-ink/80">How one failure spreads through a real city, and how to plan around it. Every number in it is a simulated output for Pune.</p>
+          <div className="rise mt-10 overflow-hidden rounded-[2rem] bg-ink shadow-[0_50px_100px_-50px_color-mix(in_oklab,var(--ink)_55%,transparent)]">
+            <video className="aspect-video w-full" src="/video/cascade-explainer.mp4" poster="/video/cascade-explainer-poster.jpg" controls playsInline preload="none" aria-label="Cascade, 60-second explainer">
+              <track kind="captions" src="/video/cascade-explainer.vtt" srcLang="en" label="English" />
+            </video>
+          </div>
+        </Reveal>
+      </section>
+
       <section id="how" className="mx-auto max-w-6xl px-5 py-28 md:py-40">
         <Reveal className="grid gap-12 md:grid-cols-[5fr_7fr] md:gap-20">
           <div className="md:sticky md:top-28 md:self-start">

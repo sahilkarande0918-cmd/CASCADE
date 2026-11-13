@@ -79,53 +79,6 @@ function mcStats(mc: Mc | null, n: number, i: number) {
 
 // ---- explainer --------------------------------------------------------------
 
-/** Opens the explainer full-size in a native modal dialog (Esc closes it). Nothing autoplays until asked. */
-export function openExplainer() {
-  const d = document.getElementById('explainer-dialog') as HTMLDialogElement | null;
-  if (!d) return;
-  d.showModal();
-  d.querySelector('video')?.play().catch(() => {});
-}
-
-export function ExplainerDialog() {
-  return (
-    <dialog
-      id="explainer-dialog"
-      className="m-auto w-[min(1200px,94vw)] rounded-3xl bg-ink p-0 backdrop:bg-ink/70"
-      onClose={(e) => (e.currentTarget.querySelector('video') as HTMLVideoElement | null)?.pause()}
-      aria-label="Cascade, 60-second explainer"
-    >
-      <video className="aspect-video w-full" src="/video/cascade-explainer.mp4" poster="/video/cascade-explainer-poster.jpg" controls playsInline preload="none">
-        <track kind="captions" src="/video/cascade-explainer.vtt" srcLang="en" label="English" />
-      </video>
-      <form method="dialog" className="flex justify-end p-3">
-        <button className="rounded-full bg-cream px-4 py-2 text-[14px] font-medium text-ink hover:bg-peach">Close</button>
-      </form>
-    </dialog>
-  );
-}
-
-export function ExplainerCard() {
-  return (
-    <button
-      onClick={openExplainer}
-      className="group relative aspect-video w-full shrink-0 overflow-hidden rounded-3xl bg-cover bg-center text-left"
-      style={{ backgroundImage: 'url(/video/cascade-explainer-poster.jpg)' }}
-      aria-label="Play the 60-second explainer video"
-    >
-      <span className="absolute inset-0 flex flex-col justify-between p-4">
-        <span className="self-start rounded-full bg-cream/85 px-3 py-1 text-[13px]">Watch the 60-second explainer</span>
-        <span className="flex items-end justify-end gap-2">
-          <span className="tabular rounded-full bg-cream/85 px-2 py-0.5 text-[13px]">1:00</span>
-          <span className="grid size-11 place-items-center rounded-full bg-amber text-ink transition-transform group-hover:scale-105" aria-hidden>
-            <svg width="12" height="14" viewBox="0 0 12 14"><path d="M0 0 12 7 0 14z" fill="currentColor" /></svg>
-          </span>
-        </span>
-      </span>
-    </button>
-  );
-}
-
 // ---- left rail ---------------------------------------------------------------
 
 export function ScenarioRail(props: Shared & {

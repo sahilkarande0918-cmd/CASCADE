@@ -13,6 +13,7 @@ export function Mark() {
 }
 
 const LINKS = [
+  { href: '/#explainer', label: 'Watch' },
   { href: '/#how', label: 'How it works' },
   { href: '/#cascade', label: 'The cascade' },
   { href: '/method', label: 'Method' },
