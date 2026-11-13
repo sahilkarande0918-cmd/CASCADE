@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`cascade engine > replays a golden scenario 1`] = `
+{
+  "edges": [
+    "power:sub>pump",
+    "power:sub>mast",
+    "power:sub>hosp",
+    "power:sub>d1",
+    "power:sub2>d2",
+    "water:pump>tower",
+    "water:tower>hosp",
+    "water:tower>d1",
+    "water:tower>d2",
+    "comms:mast>hosp",
+    "comms:mast>d1",
+  ],
+  "impact": 2576.25,
+  "ttf": {
+    "d1": 4.75,
+    "d2": 18.75,
+    "hosp": 20.75,
+    "mast": 8.75,
+    "pump": 4.75,
+    "sub": 4.75,
+    "sub2": Infinity,
+    "tower": 12.75,
+  },
+}
+`;
