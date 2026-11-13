@@ -16,7 +16,6 @@ const DEFS = {
   'backup.clinic.water': { value: 8, label: 'Clinic water storage', unit: 'h', group: 'Backup buffers', note: '' },
   'backup.telecom.power': { value: 4, label: 'Mast battery', unit: 'h', group: 'Backup buffers', note: 'Battery bank at a mobile mast.' },
   'backup.water_tower.water': { value: 8, label: 'Water tower storage', unit: 'h', group: 'Backup buffers', note: 'Hours of normal draw held in an elevated tank.' },
-  'backup.water_tower.power': { value: 999, label: 'Water tower power need', unit: 'h', group: 'Backup buffers', note: 'Gravity-fed: effectively no power dependency.' },
   'backup.pumping.power': { value: 0, label: 'Pumping station backup power', unit: 'h', group: 'Backup buffers', note: 'Assumes no on-site generator.' },
   'backup.water_works.power': { value: 2, label: 'Water works backup power', unit: 'h', group: 'Backup buffers', note: '' },
   'backup.fuel.power': { value: 0, label: 'Fuel station backup power', unit: 'h', group: 'Backup buffers', note: 'Pumps stop when power does.' },

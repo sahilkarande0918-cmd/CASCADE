@@ -20,7 +20,7 @@ const DT = SIM.stepHours;
 /** Node state per step, for playback. */
 export const UP = 0, DOWN = 1, BACKUP = 2;
 /** Why a node first went down. */
-export const CAUSE_NONE = 0, CAUSE_FLOOD = 1, CAUSE_MANUAL = 2, CAUSE_INPUT = 3;
+export const CAUSE_FLOOD = 1, CAUSE_MANUAL = 2, CAUSE_INPUT = 3;
 
 export type Prepared = {
   city: CityData;
@@ -369,4 +369,19 @@ export function optimize(
     best.push(mk(alt, score(alt)));
   }
   return { best: best.sort((x, y) => x.impact - y.impact), baseline, evaluated };
+}
+
+/** The chain of node indices that took node `i` down, root cause first. */
+export function trace(r: Pick<RunResult, 'cause' | 'causeEdge'>, from: ArrayLike<number>, i: number): number[] {
+  const path = [i];
+  const seen = new Set(path);
+  let cur = i;
+  while (r.cause[cur] === CAUSE_INPUT && r.causeEdge[cur] >= 0) {
+    const next = from[r.causeEdge[cur]];
+    if (seen.has(next)) break;
+    seen.add(next);
+    path.unshift(next);
+    cur = next;
+  }
+  return path;
 }

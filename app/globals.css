@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* CASCADE palette. The only place colour is defined; every neutral is mixed
-   from Ink or Cream, so nothing on the page is colourless. */
+   from Ink and Cream, so nothing on the page is colourless. */
 :root {
   --ink: #1A0A22;
   --plum: #3B1450;
@@ -27,65 +27,65 @@
   --color-lagoon: var(--lagoon);
   --color-amber: var(--amber);
 
-  /* Tinted neutrals. */
-  --color-ink-2: color-mix(in oklab, var(--ink) 86%, var(--plum));
-  --color-ink-3: color-mix(in oklab, var(--ink) 70%, var(--plum));
-  --color-line: color-mix(in oklab, var(--cream) 14%, var(--ink));
-  --color-line-2: color-mix(in oklab, var(--cream) 24%, var(--ink));
-  --color-mute: color-mix(in oklab, var(--cream) 62%, var(--ink));
-  --color-mute-2: color-mix(in oklab, var(--cream) 44%, var(--ink));
-  --color-cream-2: color-mix(in oklab, var(--cream) 90%, var(--peach));
-  --color-cream-line: color-mix(in oklab, var(--ink) 14%, var(--cream));
-  --color-ink-soft: color-mix(in oklab, var(--ink) 66%, var(--cream));
+  /* Roles. Ground, two surface steps, ink, a softer ink. */
+  --color-bg: var(--cream);
+  --color-surface: color-mix(in oklab, var(--cream) 72%, var(--peach));
+  --color-surface-2: color-mix(in oklab, var(--cream) 45%, var(--peach));
+  --color-muted: color-mix(in oklab, var(--ink) 66%, var(--cream));
+  --color-night: var(--ink);
+  --color-night-2: color-mix(in oklab, var(--ink) 88%, var(--cream));
+  --color-night-3: color-mix(in oklab, var(--ink) 78%, var(--cream));
+  --color-night-muted: color-mix(in oklab, var(--cream) 68%, var(--ink));
 
-  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
-  --font-sans: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  /* Status colours deepened towards Ink so they read as text on Cream. */
+  --color-signal-ink: color-mix(in oklab, var(--signal) 70%, var(--ink));
+  --color-lagoon-ink: color-mix(in oklab, var(--lagoon) 55%, var(--ink));
+  --color-amber-ink: color-mix(in oklab, var(--amber) 55%, var(--ink));
+
+  --font-display: var(--font-headline), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-text), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--ink);
   font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.022em;
+  line-height: 1.05;
 }
 
 ::selection {
-  background: var(--coral);
+  background: var(--peach);
   color: var(--ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--ember);
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
+.tabular { font-variant-numeric: tabular-nums; }
 
-.tabular {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-}
+/* Entrances: content is visible by default; only once script marks it does it travel. */
+.rise { transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.js .rise:not([data-in]) { opacity: 0; transform: translateY(24px); }
 
-/* Lenis. */
-html.lenis, html.lenis body { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto !important; }
-.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-.lenis.lenis-stopped { overflow: hidden; }
-
-/* Range inputs in palette. */
-input[type='range'] { accent-color: var(--coral); }
+input[type='range'] { accent-color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -93,9 +93,13 @@ input[type='range'] { accent-color: var(--coral); }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .js .rise:not([data-in]) { opacity: 1; transform: none; }
 }
 
 @media print {
   html, body { background: var(--cream); color: var(--ink); }
-  .no-print { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-video { display: none; }
 }

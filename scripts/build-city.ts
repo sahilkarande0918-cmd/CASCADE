@@ -8,13 +8,9 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PNG } from 'pngjs';
+import { CITIES, isCityKey } from '../lib/cities';
 import type { CityData, CityNode, Kind, RoadGraph } from '../lib/engine/types';
 
-const CITIES: Record<string, { name: string; country: string; center: [number, number] }> = {
-  pune: { name: 'Pune', country: 'India', center: [73.8567, 18.5204] },
-  chennai: { name: 'Chennai', country: 'India', center: [80.255, 13.035] },
-  valencia: { name: 'Valencia', country: 'Spain', center: [-0.375, 39.455] },
-};
 const HALF_KM = 5;
 const Z = 13;
 const CACHE = join(process.cwd(), 'scripts', '.cache');
@@ -137,7 +133,7 @@ const r1 = (x: number) => Math.round(x * 10) / 10;
 
 // ---- build ------------------------------------------------------------------
 
-async function build(key: string) {
+async function build(key: keyof typeof CITIES) {
   const c = CITIES[key];
   const [lng, lat] = c.center;
   const dLat = HALF_KM / 111.32, dLng = dLat / Math.cos((lat * Math.PI) / 180);
@@ -298,16 +294,17 @@ async function build(key: string) {
   }
 
   // ---- hand grid for the flood overlay
-  const nx = 128, ny = 128, h: number[] = [];
+  const nx = 128, ny = 128, h: number[] = [], ev: number[] = [];
   for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
     const p = { lng: bbox[0] + ((i + 0.5) * (bbox[2] - bbox[0])) / nx, lat: bbox[3] - ((j + 0.5) * (bbox[3] - bbox[1])) / ny };
     const v = hand(p);
     h.push(Number.isFinite(v) ? Math.round(v * 10) : -32768);
+    ev.push(Math.round(elev(p.lng, p.lat)));
   }
 
   const out: CityData = {
     key, name: c.name, country: c.country, bbox, center: c.center, zoom: 12.6,
-    generatedAt: new Date().toISOString().slice(0, 10), nodes, observed, road, grid: { bbox, nx, ny, h },
+    generatedAt: new Date().toISOString().slice(0, 10), nodes, observed, road, grid: { bbox, nx, ny, h, e: ev },
   };
   const counts = nodes.reduce<Record<string, number>>((m, n) => ((m[n.kind] = (m[n.kind] ?? 0) + 1), m), {});
   console.log(`  nodes`, counts, `observed links ${observed.length}, road ${road.v.length}v/${road.e.length}e, drains ${drains.length}`);
@@ -319,7 +316,7 @@ async function build(key: string) {
 (async () => {
   const keys = process.argv.slice(2);
   for (const k of keys.length ? keys : Object.keys(CITIES)) {
-    if (!CITIES[k]) throw new Error(`unknown city ${k}`);
+    if (!isCityKey(k)) throw new Error(`unknown city ${k}`);
     await build(k);
   }
 })();

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_ASSUMPTIONS as A } from '../assumptions';
 import { accessCutoffs, inferEdges } from './infer';
-import { CAUSE_FLOOD, CAUSE_INPUT, CAUSE_MANUAL, monteCarlo, optimize, prepare, rng, run, STEPS } from './simulate';
+import { CAUSE_FLOOD, CAUSE_INPUT, CAUSE_MANUAL, monteCarlo, optimize, prepare, rng, run, STEPS, trace } from './simulate';
 import type { CityData, CityNode, Edge, Kind, Scenario, Service } from './types';
 
 const node = (id: string, kind: Kind, extra: Partial<CityNode> = {}): CityNode => ({
@@ -30,6 +30,7 @@ describe('cascade engine', () => {
     expect(r.cause[1]).toBe(CAUSE_INPUT);
     expect(r.ttf[2]).toBe(A['backup.district.water']); // household tanks run dry
     expect(r.causeEdge[2]).toBe(1);
+    expect(trace(r, prepare(c, s, A, edges).from, 2)).toEqual([0, 1, 2]);
   });
 
   it('treats AND and OR differently', () => {

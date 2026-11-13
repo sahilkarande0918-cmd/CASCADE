@@ -1,21 +1,21 @@
 import type { Metadata, Viewport } from 'next';
-import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google';
+import { Stack_Sans_Headline, Stack_Sans_Text } from 'next/font/google';
 import './globals.css';
 
-const display = Bricolage_Grotesque({ variable: '--font-bricolage', subsets: ['latin'], display: 'swap' });
-const mono = JetBrains_Mono({ variable: '--font-jetbrains', subsets: ['latin'], display: 'swap' });
+const headline = Stack_Sans_Headline({ variable: '--font-headline', subsets: ['latin'], weight: ['300'], display: 'swap' });
+const text = Stack_Sans_Text({ variable: '--font-text', subsets: ['latin'], weight: ['400', '500'], display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'CASCADE: watch a city fail, then plan around it',
+  title: 'Cascade: watch a city fail, then plan around it',
   description:
-    'Click any piece of infrastructure, simulate its failure, and watch the consequences spread through the city over time. A browser-native, explainable cascade simulator built on open data.',
+    'Fail any piece of a city’s infrastructure and watch the consequences spread through power, water, roads and comms over 72 hours. A browser-native, explainable simulator built on open map data.',
 };
 
-export const viewport: Viewport = { themeColor: '#1A0A22' };
+export const viewport: Viewport = { themeColor: '#FFF4E8' };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="en" className={`${display.variable} ${mono.variable}`}>
+    <html lang="en" className={`${headline.variable} ${text.variable}`}>
       <body className="min-h-dvh">{children}</body>
     </html>
   );

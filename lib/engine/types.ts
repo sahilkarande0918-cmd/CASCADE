@@ -51,6 +51,8 @@ export type HandGrid = {
   ny: number;
   /** Row-major from the north-west corner, decimetres; -32768 = no data. */
   h: number[];
+  /** Ground elevation, metres, same layout. */
+  e?: number[];
 };
 
 export type CityData = {

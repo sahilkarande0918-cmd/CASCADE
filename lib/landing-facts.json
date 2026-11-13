@@ -1,0 +1,143 @@
+{
+  "city": "Pune",
+  "stage": 2,
+  "nodes": 575,
+  "edges": 1831,
+  "observed": 1,
+  "failed": 350,
+  "hospitalsFailed": 179,
+  "impact": 72053,
+  "board": [
+    {
+      "name": "Indian Oil",
+      "kind": "Fuel station",
+      "ttf": 1,
+      "how": "Floods",
+      "path": [
+        "Indian Oil"
+      ]
+    },
+    {
+      "name": "Bharat Petroleum",
+      "kind": "Fuel station",
+      "ttf": 1,
+      "how": "Loses power",
+      "path": [
+        "Sinhagad Road Substation (Parvati)",
+        "Bharat Petroleum"
+      ]
+    },
+    {
+      "name": "Sharda Clinic",
+      "kind": "Clinic",
+      "ttf": 1,
+      "how": "Floods",
+      "path": [
+        "Sharda Clinic"
+      ]
+    },
+    {
+      "name": "Sinhagad Road Substation (Parvati)",
+      "kind": "Substation",
+      "ttf": 1,
+      "how": "Floods",
+      "path": [
+        "Sinhagad Road Substation (Parvati)"
+      ]
+    },
+    {
+      "name": "Karva Hospital",
+      "kind": "Hospital",
+      "ttf": 1.5,
+      "how": "Floods",
+      "path": [
+        "Karva Hospital"
+      ]
+    },
+    {
+      "name": "Parvati Water Treatment Plant",
+      "kind": "Water works",
+      "ttf": 1.5,
+      "how": "Floods",
+      "path": [
+        "Parvati Water Treatment Plant"
+      ]
+    },
+    {
+      "name": "Kamal Nursing Home, Pune",
+      "kind": "Clinic",
+      "ttf": 4.5,
+      "how": "Loses comms",
+      "path": [
+        "Telecom mast #3587",
+        "Kamal Nursing Home, Pune"
+      ]
+    },
+    {
+      "name": "Apte Clinic",
+      "kind": "Clinic",
+      "ttf": 5,
+      "how": "Loses power",
+      "path": [
+        "Sinhagad Road Substation (Parvati)",
+        "Apte Clinic"
+      ]
+    },
+    {
+      "name": "Sai Seva Hospital",
+      "kind": "Clinic",
+      "ttf": 11,
+      "how": "Loses water",
+      "path": [
+        "Water tower #1528",
+        "Sai Seva Hospital"
+      ]
+    }
+  ],
+  "root": {
+    "name": "Parvati Water Treatment Plant",
+    "kind": "Water works",
+    "downstream": 312,
+    "byKind": [
+      [
+        "Hospital",
+        164
+      ],
+      [
+        "Clinic",
+        139
+      ],
+      [
+        "Water tower",
+        9
+      ]
+    ],
+    "first": [
+      {
+        "name": "Water tower #3429",
+        "kind": "Water tower",
+        "ttf": 8
+      },
+      {
+        "name": "Dr. Mudgerikar Clinic",
+        "kind": "Clinic",
+        "ttf": 16
+      },
+      {
+        "name": "Sardar Patel Cantonment General Hospital",
+        "kind": "Hospital",
+        "ttf": 32
+      }
+    ]
+  },
+  "plan": {
+    "k": 3,
+    "cut": 10,
+    "evaluated": 89,
+    "steps": [
+      "Raise or harden Telecom mast #3587",
+      "Raise or harden Parvati Water Treatment Plant",
+      "Raise or harden Sinhagad Road Substation (Parvati)"
+    ]
+  }
+}
