@@ -139,7 +139,7 @@ export function ScenarioRail(props: Shared & {
         <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="City">
           {(Object.keys(CITIES) as CityKey[]).map((k) => (
             <button key={k} role="radio" aria-checked={st.city === k} onClick={() => setCityKey(k)}
-              className={`${btn} ${st.city === k ? 'bg-ink text-cream' : 'bg-surface text-ink hover:bg-surface-2'}`}>
+              className={`${btn} ${st.city === k ? 'bg-amber font-medium text-ink' : 'bg-surface text-ink hover:bg-surface-2'}`}>
               {CITIES[k].name}
             </button>
           ))}
@@ -165,7 +165,7 @@ export function ScenarioRail(props: Shared & {
         <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Map click mode">
           {(['inspect', 'fail'] as const).map((m) => (
             <button key={m} role="radio" aria-checked={mode === m} onClick={() => setMode(m)}
-              className={`${btn} ${mode === m ? (m === 'fail' ? 'bg-signal text-ink' : 'bg-ink text-cream') : 'bg-surface hover:bg-surface-2'}`}>
+              className={`${btn} ${mode === m ? (m === 'fail' ? 'bg-signal font-medium text-ink' : 'bg-amber font-medium text-ink') : 'bg-surface hover:bg-surface-2'}`}>
               {m === 'inspect' ? 'Inspect' : 'Fail on click'}
             </button>
           ))}
@@ -659,7 +659,7 @@ export function PlansPanel({ city, st, update, cmp, editPlan, setEditPlan }: Sha
       <p className="mb-3 text-xs text-muted">Build up to three plans from the inspector, or load one from the optimizer. Compared against the baseline with nothing done.</p>
       <div className="grid grid-cols-3 gap-2">
         {st.plans.map((p, j) => (
-          <div key={j} className={`rounded-lg border p-2 ${editPlan === j ? 'border-ink' : 'border-line'}`}>
+          <div key={j} className={`rounded-lg border p-2 ${editPlan === j ? 'border-amber bg-amber/15' : 'border-transparent'}`}>
             <div className="flex items-center justify-between">
               <button className="font-display text-lg" onClick={() => setEditPlan(j)} aria-pressed={editPlan === j} aria-label={`Edit plan ${PLAN_NAMES[j]}`}>{PLAN_NAMES[j]}</button>
               <button className={`text-[13px]  ${st.view === j ? 'text-lagoon-ink' : 'text-muted hover:text-ink'}`} disabled={!p.length}

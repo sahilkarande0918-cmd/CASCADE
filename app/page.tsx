@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Board from '@/components/landing/Board';
 import Hero from '@/components/landing/Hero';
+import Sky from '@/components/Sky';
 import Reveal from '@/components/landing/Reveal';
 import facts from '@/lib/landing-facts.json';
 import { hhmm } from '@/lib/labels';
@@ -34,16 +35,16 @@ export default function Home() {
                 The river rises over six hours. Anything whose ground sits lower than the water, measured from elevation tiles, goes under. Roads close the same way.
               </p>
             </li>
-            <li className="rise rounded-3xl bg-ink p-7 text-cream">
+            <li className="rise rounded-3xl bg-surface-2 p-7">
               <h3 className="text-[26px]">The cascade</h3>
-              <p className="mt-2 text-cream/80">
+              <p className="mt-2 text-ink/80">
                 Fail {facts.root.name} on a dry day and {fmt(facts.root.downstream)} facilities follow, each when its own backup runs out:
               </p>
               <ul className="tabular mt-4 grid gap-2 text-[16px]" data-ui>
                 {[tower, clinic, hospital].filter(Boolean).map((x) => (
-                  <li key={x.name} className="flex justify-between gap-4 rounded-xl bg-cream/10 px-4 py-3">
+                  <li key={x.name} className="flex justify-between gap-4 rounded-xl bg-cream px-4 py-3">
                     <span>{x.name.startsWith(x.kind) ? x.name : `${x.kind}: ${x.name}`}</span>
-                    <span className="text-amber">T+{hhmm(x.ttf)}</span>
+                    <span className="text-signal-ink">T+{hhmm(x.ttf)}</span>
                   </li>
                 ))}
               </ul>
@@ -83,10 +84,11 @@ export default function Home() {
       </section>
 
       <section className="px-4 pb-4">
-        <div className="relative overflow-hidden rounded-[2rem] bg-ink px-6 py-24 text-cream md:px-16 md:py-32">
+        <div className="relative isolate overflow-hidden rounded-[2rem] px-6 py-24 md:px-16 md:py-32">
+          <Sky />
           <Reveal className="relative max-w-3xl">
             <h2 className="rise text-[clamp(2.4rem,1.4rem+4.6vw,5.5rem)]">Break a city.</h2>
-            <p className="rise mt-5 max-w-xl text-cream/80">
+            <p className="rise mt-5 max-w-xl text-ink/80">
               Pick Pune, Chennai or Valencia, set the river, fail what you like, and compare up to three plans. It runs in your browser; nothing to install.
             </p>
             <Link href="/dashboard" className="rise group mt-8 inline-flex items-center gap-2 rounded-full bg-amber px-6 py-3 text-[16px] font-medium text-ink transition hover:bg-ember active:scale-[0.97]">

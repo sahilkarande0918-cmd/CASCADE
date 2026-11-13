@@ -103,7 +103,7 @@ export default function CascadeMap({ city, edges, a, view, onNode, onEdge, onRea
       m.addLayer({ id: 'deps-hit', type: 'line', source: 'deps', paint: { 'line-color': P.ink, 'line-width': 8, 'line-opacity': 0 } });
 
       m.addSource('nodes', { type: 'geojson', data: nodeData(city), promoteId: 'i' });
-      const fill = ['match', ['coalesce', ['feature-state', 's'], 0], 1, P.signal, 2, P.amber, mix(P.ink, P.plum, 0.4)] as maplibregl.ExpressionSpecification;
+      const fill = ['match', ['coalesce', ['feature-state', 's'], 0], 1, P.signal, 2, P.amber, mix(P.lagoon, P.ink, 0.25)] as maplibregl.ExpressionSpecification;
       m.addLayer({
         id: 'wave', type: 'circle', source: 'nodes', filter: ['!=', ['get', 'k'], 'district'],
         paint: {
