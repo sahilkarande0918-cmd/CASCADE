@@ -13,7 +13,7 @@ import type { CityData, Edge, Intervention, Scenario } from '@/lib/engine/types'
 import { assumptionsOf, decode, encode, initialState, type AppState } from '@/lib/scenario';
 import type { MapView } from './CascadeMap';
 import {
-  Brief, ExplainerCard, FragilityPanel, ImpactPanel, Inspector, OptimizerPanel, PlansPanel, ScenarioRail, Scrubber,
+  Brief, ExplainerCard, ExplainerDialog, openExplainer, FragilityPanel, ImpactPanel, Inspector, OptimizerPanel, PlansPanel, ScenarioRail, Scrubber,
   type Mc, type Compare,
 } from './Panels';
 
@@ -259,6 +259,7 @@ export default function Dashboard() {
         </aside>
       </div>
 
+      <ExplainerDialog />
       <Brief {...shared} cmp={cmp} frag={frag.list} />
     </div>
   );
@@ -272,6 +273,10 @@ function MapOverlay({ mode, stage, hours, progress, engineError }: { mode: strin
         <p className="tabular text-[15px]">River {stage.toFixed(2)} m above drainage</p>
       </div>
       <div className="flex flex-col items-end gap-2">
+        <button onClick={openExplainer} className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-amber px-4 py-2 text-[14px] font-medium text-ink shadow-[0_10px_30px_-12px_color-mix(in_oklab,var(--ink)_45%,transparent)] hover:bg-ember">
+          <svg width="10" height="12" viewBox="0 0 12 14" aria-hidden><path d="M0 0 12 7 0 14z" fill="currentColor" /></svg>
+          Watch the explainer · 1:00
+        </button>
         {mode === 'fail' && <p className="rounded-full bg-signal px-4 py-2 text-[14px] text-ink">Fail mode: click a node to fail it</p>}
         {progress < 1 && <p className="rounded-full bg-cream/85 px-4 py-2 text-[14px] text-muted backdrop-blur">Monte Carlo {Math.round(progress * 100)}%</p>}
         {engineError && <p className="rounded-full bg-signal px-4 py-2 text-[14px] text-ink">Engine error: {engineError}</p>}
