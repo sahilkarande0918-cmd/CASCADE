@@ -30,3 +30,17 @@ Every number in the video is the engine's output for Pune and is labelled as a s
 ## Statistics
 
 Cascade shows no real-world statistics. Every number on the site is a simulated output of the engine on the data above, labelled as a simulated scenario.
+
+## YouTube walkthrough (`video/youtube/`, not served by the site)
+
+| What | Source | Licence |
+|---|---|---|
+| Lightning storm | "Lightning storm over Colorado, USA" by NathanScientific, Wikimedia Commons | CC0 1.0 |
+| River flooding | "2022-01-11 Garonne River Overflow 5472" by Pierre-Selim Huard, Wikimedia Commons | CC BY 4.0 |
+| River flooding | "Russian River flooding in Monte Rio - January 2023" by Missvain, Wikimedia Commons | CC BY 4.0 |
+| Cyclone eye | "Tropical Cyclone Dudzai's Eye (CIRA 2026-01-12)", JPSS imagery: CSU/CIRA & NOAA, Wikimedia Commons | Public domain |
+| Night lights | "Dark Nights in Georgia", NASA Earth Observatory, Wikimedia Commons | Public domain |
+| Flood, skyline, sluice, sky | As listed for the explainer video above | CC0 / CC BY 3.0 |
+| Music | "Cinematic Ambient" by Matio888, https://freesound.org/people/Matio888/sounds/795808 | CC BY 4.0 |
+| App scenes | Screen recordings of the live Cascade site | This project |
+| Speakers | Sahil and Pranav, recorded by the team | This project |

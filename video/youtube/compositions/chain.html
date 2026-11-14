@@ -1,0 +1,73 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #chain { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #1A0A22; }
+  .node { position:absolute; top:640px; padding:20px 30px; border-radius:20px; background:rgba(255,244,232,0.94); font-size:34px; font-weight:500; white-space:nowrap; }
+  .arrow { position:absolute; top:676px; height:4px; background:#FF6B5B; transform-origin:left center; }
+  </style>
+  <div id="chain" data-composition-id="chain" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="chain-stage">
+      <div class="push" id="chain-p1"><video id="chain-v0" class="clip media" src="assets/footage/leine.mp4" data-start="0" data-duration="6.4" data-media-start="9.4" data-track-index="0" muted playsinline></video></div><div class="veil" id="chain-veil2"></div>
+      <div class="push" id="chain-p4"><video id="chain-v3" class="clip media" src="assets/footage/garonne.mp4" data-start="6.4" data-duration="6.8" data-media-start="4" data-track-index="0" muted playsinline></video></div><div class="veil" id="chain-veil5"></div>
+      <div class="kin light  " id="chain-k6" style="top:200px;font-size:112px"><span class="w" id="chain-k6-0">Nothing</span> <span class="w" id="chain-k6-1">fails</span> <span class="w acc" id="chain-k6-2">alone.</span></div>
+      <div class="node" id="chain-n0" style="left:160px">Substation</div>
+      <div class="node" id="chain-n1" style="left:560px">Pumping station</div>
+      <div class="arrow" id="chain-a1" style="left:410px;width:140px"></div>
+      <div class="node" id="chain-n2" style="left:1020px">Water tower</div>
+      <div class="arrow" id="chain-a2" style="left:900px;width:110px"></div>
+      <div class="node" id="chain-n3" style="left:1430px">Hospital</div>
+      <div class="arrow" id="chain-a3" style="left:1310px;width:110px"></div>
+      <div class="chip amber" id="chain-c7" style="left:160px;top:330px">…hours later, on backup power</div>
+    </div>
+    <div class="flash" id="chain-flash"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#chain-flash', { opacity: 1 }, { opacity: 0, duration: 0.32, ease: 'power2.out' }, 0);
+    tl.fromTo('#chain-p1', { scale: 1 }, { scale: 1.05, duration: 6.4, ease: 'none' }, 0);
+    tl.fromTo('#chain-p4', { scale: 1 }, { scale: 1.05, duration: 6.8, ease: 'none' }, 6.4);
+    tl.fromTo('#chain-k6-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.56);
+    tl.fromTo('#chain-k6-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 2.24);
+    tl.fromTo('#chain-k6-2', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 2.56);
+    tl.fromTo('#chain-n0', { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'expo.out' }, 3.6);
+    tl.to('#chain-n0', { backgroundColor: '#FF4B2B', color: '#FFF4E8', duration: 0.15 }, 5.38);
+    tl.fromTo('#chain-n1', { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'expo.out' }, 5.28);
+    tl.fromTo('#chain-a1', { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: 'power4.out' }, 5.03);
+    tl.to('#chain-n1', { backgroundColor: '#FF4B2B', color: '#FFF4E8', duration: 0.15 }, 8.02);
+    tl.fromTo('#chain-n2', { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'expo.out' }, 7.92);
+    tl.fromTo('#chain-a2', { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: 'power4.out' }, 7.67);
+    tl.to('#chain-n2', { backgroundColor: '#FF4B2B', color: '#FFF4E8', duration: 0.15 }, 9.86);
+    tl.fromTo('#chain-n3', { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'expo.out' }, 9.76);
+    tl.fromTo('#chain-a3', { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: 'power4.out' }, 9.51);
+    tl.to('#chain-n3', { backgroundColor: '#FF4B2B', color: '#FFF4E8', duration: 0.15 }, 10.88);
+    tl.fromTo('#chain-c7', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 9.04);
+    window.__timelines['chain'] = tl;
+  </script>
+</template>

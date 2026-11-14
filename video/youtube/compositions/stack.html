@@ -1,0 +1,87 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #stack { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #FFF4E8; }
+  .src { position:absolute; left:160px; width:560px; padding:24px 30px; border-radius:22px; background:#FFD3AE; font-size:32px; font-weight:500; }
+  .src small { display:block; font-size:24px; font-weight:400; color:rgba(26,10,34,0.7); }
+  #stack-json { position:absolute; left:860px; top:430px; width:300px; padding:30px; border-radius:24px; background:#1A0A22; color:#FFF4E8; font-size:34px; text-align:center; }
+  #stack-browser { position:absolute; left:1300px; top:330px; width:460px; height:380px; border-radius:24px; background:#FFF4E8; box-shadow:0 40px 90px -40px rgba(26,10,34,0.6); overflow:hidden; }
+  #stack-browser .bar { height:48px; background:#FFD3AE; display:flex; align-items:center; gap:8px; padding-left:18px; }
+  #stack-browser .bar i { width:12px; height:12px; border-radius:50%; background:#FF6B5B; }
+  #stack-browser p { margin:26px; font-size:28px; line-height:1.5; }
+  .flow { position:absolute; height:4px; background:#FF6B5B; transform-origin:left center; }
+  </style>
+  <div id="stack" data-composition-id="stack" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="stack-stage">
+      <div class="kin   " id="stack-k0" style="top:120px;font-size:84px"><span class="w" id="stack-k0-0">The</span> <span class="w" id="stack-k0-1">stack</span> <span class="w" id="stack-k0-2">is</span> <span class="w acc" id="stack-k0-3">deliberately</span> <span class="w" id="stack-k0-4">small.</span></div>
+      <div class="chip amber" id="stack-c1" style="left:160px;top:260px">No database</div>
+      <div class="chip amber" id="stack-c2" style="left:460px;top:260px">No accounts</div>
+      <div class="src" id="stack-s0" style="top:300px">OpenStreetMap<small>infrastructure, via the Overpass API</small></div>
+  <div class="src" id="stack-s1" style="top:440px">AWS Terrain Tiles<small>elevation</small></div>
+  <div class="src" id="stack-s2" style="top:580px">Open-Meteo<small>rainfall and river data</small></div>
+  <div class="flow" id="stack-f0" style="left:720px;top:360px;width:140px;transform:rotate(22deg)"></div>
+  <div class="flow" id="stack-f1" style="left:720px;top:490px;width:140px"></div>
+  <div class="flow" id="stack-f2" style="left:720px;top:630px;width:140px;transform:rotate(-22deg)"></div>
+  <div id="stack-json">one dataset<br/>per city</div>
+  <div class="flow" id="stack-f3" style="left:1160px;top:490px;width:140px"></div>
+  <div id="stack-browser"><div class="bar"><i></i><i style="background:#FFB020"></i><i style="background:#2EC4B6"></i></div><p id="stack-p1">Next.js · React · TypeScript</p><p id="stack-p2">Deployed on Vercel</p><p id="stack-p3">OpenFreeMap tiles · runs in your browser</p></div>
+      <div class="chip lagoon" id="stack-c3" style="left:1300px;top:760px">Nothing to install</div>
+    </div>
+    
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#stack-stage', { y: -240, filter: 'blur(20px)' }, { y: 0, filter: 'blur(0px)', duration: 0.3, ease: 'power4.out' }, 0);
+    tl.fromTo('#stack-k0-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0);
+    tl.fromTo('#stack-k0-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.44);
+    tl.fromTo('#stack-k0-2', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.6);
+    tl.fromTo('#stack-k0-3', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 1.24);
+    tl.fromTo('#stack-k0-4', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 1.24);
+    tl.to('#stack-k0', { opacity: 0, filter: 'blur(8px)', duration: 0.18, ease: 'power3.in' }, 3.8);
+    tl.fromTo('#stack-c1', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 2.28);
+    tl.to('#stack-c1', { opacity: 0, y: -16, duration: 0.2, ease: 'power3.in' }, 3.8);
+    tl.fromTo('#stack-c2', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 3.32);
+    tl.to('#stack-c2', { opacity: 0, y: -16, duration: 0.2, ease: 'power3.in' }, 3.8);
+    tl.fromTo('#stack-s0', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.4, ease: 'expo.out' }, 5.64);
+    tl.fromTo('#stack-f0', { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: 'power4.out' }, 15.03);
+    tl.fromTo('#stack-s1', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.4, ease: 'expo.out' }, 0);
+    tl.fromTo('#stack-f1', { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: 'power4.out' }, 15.03);
+    tl.fromTo('#stack-s2', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.4, ease: 'expo.out' }, 11.75);
+    tl.fromTo('#stack-f2', { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: 'power4.out' }, 15.03);
+    tl.fromTo('#stack-json', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'expo.out' }, 17.03);
+    tl.fromTo('#stack-f3', { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: 'power4.out' }, 18.51);
+    tl.fromTo('#stack-browser', { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: 'expo.out' }, 18.71);
+    tl.fromTo('#stack-p1', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: 'power4.out' }, 19.27);
+    tl.fromTo('#stack-p2', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: 'power4.out' }, 22.31);
+    tl.fromTo('#stack-p3', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: 'power4.out' }, 23.99);
+    tl.fromTo('#stack-c3', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 31.27);
+    window.__timelines['stack'] = tl;
+  </script>
+</template>

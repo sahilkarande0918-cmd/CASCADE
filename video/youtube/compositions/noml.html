@@ -1,0 +1,62 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #noml { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #1A0A22; }
+  #noml { position:absolute; inset:0; background:#3B1450; }
+  #noml-big { position:absolute; left:160px; top:200px; font-family:'Stack Sans Headline',sans-serif; font-weight:300; font-size:150px; letter-spacing:-0.04em; color:#FFF4E8; line-height:1; }
+  #noml-big s { text-decoration-color:#FF4B2B; text-decoration-thickness:10px; }
+  #noml-tests { left:160px; top:470px; width:760px; padding:34px 40px; font-size:28px; line-height:1.7; }
+  #noml-tests b { color:#0f7a70; }
+  #noml-gem { left:1040px; top:470px; width:720px; padding:34px 40px; font-size:32px; line-height:1.4; }
+  #noml-gem em { display:block; margin-top:18px; font-style:normal; padding:14px 22px; border-radius:16px; background:#FFB020; font-size:28px; }
+  </style>
+  <div id="noml" data-composition-id="noml" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="noml-stage">
+      <div id="noml"></div><div id="noml-big">No machine learning.</div>
+  <div class="card mono" id="noml-tests"><div id="noml-t0"><b>✓</b> chain propagates in order</div><div id="noml-t1"><b>✓</b> AND vs OR logic</div><div id="noml-t2"><b>✓</b> backup expires at the exact step</div><div id="noml-t3"><b>✓</b> a backup never makes it worse</div><div id="noml-t4"><b>✓</b> same seed, same result</div></div>
+  <div class="card" id="noml-gem">Gemini (free tier) only turns the engine’s result into plain English.<em id="noml-tpl">No key? A fixed template does the job.</em></div>
+    </div>
+    
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#noml-stage', { scale: 1.14, filter: 'blur(12px)' }, { scale: 1, filter: 'blur(0px)', duration: 0.35, ease: 'expo.out' }, 0);
+    tl.fromTo('#noml-big', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: 'expo.out' }, 1.47);
+    tl.fromTo('#noml-tests', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: 'expo.out' }, 4.03);
+    tl.fromTo('#noml-t0', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.25, ease: 'power4.out' }, 4.33);
+    tl.fromTo('#noml-t1', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.25, ease: 'power4.out' }, 4.49);
+    tl.fromTo('#noml-t2', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.25, ease: 'power4.out' }, 4.65);
+    tl.fromTo('#noml-t3', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.25, ease: 'power4.out' }, 4.81);
+    tl.fromTo('#noml-t4', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.25, ease: 'power4.out' }, 4.97);
+    tl.fromTo('#noml-gem', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: 'expo.out' }, 6.35);
+    tl.fromTo('#noml-tpl', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.35, ease: 'expo.out' }, 13.47);
+    window.__timelines['noml'] = tl;
+  </script>
+</template>

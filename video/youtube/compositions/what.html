@@ -1,0 +1,66 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #what { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #FFF4E8; }
+  #what-lock { position:absolute; left:160px; top:300px; display:flex; align-items:center; gap:30px; }
+  #what-mark { width:130px; height:130px; border-radius:50%; background:#FFB020; display:grid; place-items:center; }
+  #what-word { font-family:'Stack Sans Headline',sans-serif; font-weight:300; font-size:190px; letter-spacing:-0.05em; line-height:1; }
+  #what-line { position:absolute; left:160px; top:500px; width:1200px; font-size:46px; line-height:1.25; }
+  #what-hours { position:absolute; right:160px; top:300px; text-align:right; }
+  #what-hours .num { font-size:200px; color:#FF6B5B; }
+  #what-hours span { display:block; font-size:34px; }
+  </style>
+  <div id="what" data-composition-id="what" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="what-stage">
+      <div id="what-lock"><div id="what-mark"><svg width="66" height="66" viewBox="0 0 16 16"><circle cx="4" cy="11" r="2.2" fill="#1A0A22"/><circle cx="12" cy="5" r="2.2" fill="#1A0A22" opacity="0.35"/><path d="M5.6 9.6 10.4 6.4" stroke="#1A0A22" stroke-width="1.4" stroke-linecap="round"/></svg></div><div id="what-word">Cascade</div></div>
+  <div id="what-line">A browser-based simulator of failures spreading through a city.</div>
+  <div id="what-hours"><div class="num" id="what-num">0h</div><span>simulated, hour by hour</span></div>
+      <div class="chip amber" id="what-c1" style="left:160px;top:700px">Pune</div>
+      <div class="chip amber" id="what-c2" style="left:380px;top:700px">Chennai</div>
+      <div class="chip amber" id="what-c3" style="left:650px;top:700px">Valencia</div>
+      <div class="chip " id="what-c4" style="left:160px;top:820px">3 cities · open map data</div>
+    </div>
+    
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#what-stage', { scale: 1.14, filter: 'blur(12px)' }, { scale: 1, filter: 'blur(0px)', duration: 0.35, ease: 'expo.out' }, 0);
+    tl.fromTo('#what-mark', { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.6, ease: 'expo.out' }, 0.16);
+    tl.fromTo('#what-word', { opacity: 0, x: -40, filter: 'blur(12px)' }, { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.5, ease: 'expo.out' }, 0.31);
+    tl.fromTo('#what-line', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power4.out' }, 3.04);
+    tl.fromTo('#what-hours', { opacity: 0 }, { opacity: 1, duration: 0.3 }, 6.48);
+    const what_n0 = { v: 0 }; tl.fromTo(what_n0, { v: 0 }, { v: 72, duration: 0.9, ease: 'power3.out', onUpdate: () => { document.querySelector('#what-num').textContent = Math.round(what_n0.v) + 'h'; } }, 6.48);
+    tl.fromTo('#what-c1', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 8.92);
+    tl.fromTo('#what-c2', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 9.4);
+    tl.fromTo('#what-c3', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 10.44);
+    tl.fromTo('#what-c4', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 7.76);
+    window.__timelines['what'] = tl;
+  </script>
+</template>

@@ -1,0 +1,76 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #honest { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #1A0A22; }
+  
+  </style>
+  <div id="honest" data-composition-id="honest" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="honest-stage">
+      <div class="push" id="honest-p1"><video id="honest-v0" class="clip media" src="assets/footage/cyclone.mp4" data-start="0" data-duration="7.5" data-media-start="0" data-track-index="0" muted playsinline></video></div><div class="veil" id="honest-veil2"></div>
+      <div class="push" id="honest-p4"><video id="honest-v3" class="clip media" src="assets/footage/lightning.mp4" data-start="7.5" data-duration="9.6" data-media-start="0" data-track-index="0" muted playsinline></video></div><div class="veil" id="honest-veil5"></div>
+      <div class="kin light  " id="honest-k6" style="top:200px;font-size:104px"><span class="w" id="honest-k6-0">A</span> <span class="w" id="honest-k6-1">planning</span> <span class="w acc" id="honest-k6-2">sketch,</span> <span class="w" id="honest-k6-3">not</span> <span class="w" id="honest-k6-4">a</span> <span class="w" id="honest-k6-5">forecast.</span></div>
+      <div class="chip glass" id="honest-c7" style="left:160px;top:420px">InfraRisk</div>
+      <div class="chip glass" id="honest-c8" style="left:420px;top:420px">CReDo</div>
+      <div class="chip amber" id="honest-c9" style="left:640px;top:420px">serious tools, serious work</div>
+      <div class="kin light  " id="honest-k10" style="top:200px;font-size:104px"><span class="w" id="honest-k10-0">Cascade</span> <span class="w" id="honest-k10-1">doesn’t</span> <span class="w acc" id="honest-k10-2">replace</span> <span class="w" id="honest-k10-3">them.</span></div>
+      <div class="chip amber" id="honest-c11" style="left:160px;top:420px">Zero install</div>
+      <div class="chip amber" id="honest-c12" style="left:450px;top:420px">Explainable</div>
+      <div class="chip lagoon" id="honest-c13" style="left:750px;top:420px">Open data</div>
+    </div>
+    
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#honest-stage', { y: -240, filter: 'blur(20px)' }, { y: 0, filter: 'blur(0px)', duration: 0.3, ease: 'power4.out' }, 0);
+    tl.fromTo('#honest-p1', { scale: 1 }, { scale: 1.05, duration: 7.5, ease: 'none' }, 0);
+    tl.fromTo('#honest-p4', { scale: 1 }, { scale: 1.05, duration: 9.6, ease: 'none' }, 7.5);
+    tl.fromTo('#honest-k6-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 1.68);
+    tl.fromTo('#honest-k6-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0);
+    tl.fromTo('#honest-k6-2', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 2.64);
+    tl.fromTo('#honest-k6-3', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 3.12);
+    tl.fromTo('#honest-k6-4', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 3.28);
+    tl.fromTo('#honest-k6-5', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 3.36);
+    tl.to('#honest-k6', { opacity: 0, filter: 'blur(8px)', duration: 0.18, ease: 'power3.in' }, 8.3);
+    tl.fromTo('#honest-c7', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 4.88);
+    tl.to('#honest-c7', { opacity: 0, y: -16, duration: 0.2, ease: 'power3.in' }, 8.3);
+    tl.fromTo('#honest-c8', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 6);
+    tl.to('#honest-c8', { opacity: 0, y: -16, duration: 0.2, ease: 'power3.in' }, 8.3);
+    tl.fromTo('#honest-c9', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 7.2);
+    tl.to('#honest-c9', { opacity: 0, y: -16, duration: 0.2, ease: 'power3.in' }, 8.3);
+    tl.fromTo('#honest-k10-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 8.96);
+    tl.fromTo('#honest-k10-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 9.68);
+    tl.fromTo('#honest-k10-2', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 9.92);
+    tl.fromTo('#honest-k10-3', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 10.08);
+    tl.fromTo('#honest-c11', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 11.2);
+    tl.fromTo('#honest-c12', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 12.32);
+    tl.fromTo('#honest-c13', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 15.92);
+    window.__timelines['honest'] = tl;
+  </script>
+</template>

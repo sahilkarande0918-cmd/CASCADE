@@ -1,0 +1,51 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #intro { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #1A0A22; }
+  #intro-mark { position:absolute; left:0; right:0; top:390px; text-align:center; font-family:'Stack Sans Headline',sans-serif; font-weight:300; font-size:190px; letter-spacing:-0.05em; color:#FFF4E8; }
+  #intro-sub { position:absolute; left:0; right:0; top:610px; text-align:center; font-size:40px; color:#FFF4E8; opacity:0.9; }
+  </style>
+  <div id="intro" data-composition-id="intro" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="intro-stage">
+      <div class="push" id="intro-p1"><video id="intro-v0" class="clip media" src="assets/footage/lightning.mp4" data-start="0" data-duration="4" data-media-start="3" data-track-index="0" muted playsinline></video></div><div class="veil" id="intro-veil2"></div>
+      <div id="intro-mark">Cascade</div><div id="intro-sub">How one failure spreads through a city</div>
+    </div>
+    
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+    tl.fromTo('#intro-p1', { scale: 1 }, { scale: 1.05, duration: 4, ease: 'none' }, 0);
+    tl.fromTo('#intro-mark', { opacity: 0, scale: 1.25, filter: 'blur(14px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.1, ease: 'expo.out' }, 0.3);
+    tl.fromTo('#intro-sub', { opacity: 0, y: 16 }, { opacity: 0.9, y: 0, duration: 0.5, ease: 'power4.out' }, 1.2);
+    tl.to('#intro-mark, #intro-sub', { opacity: 0, filter: 'blur(10px)', duration: 0.25, ease: 'power3.in' }, 3.65);
+    window.__timelines['intro'] = tl;
+  </script>
+</template>

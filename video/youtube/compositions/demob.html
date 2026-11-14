@@ -1,0 +1,64 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #demob { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #FFF4E8; }
+  
+  </style>
+  <div id="demob" data-composition-id="demob" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="demob-stage">
+      <div class="push" id="demob-p1"><video id="demob-v0" class="clip media" src="assets/demo/b.mp4" data-start="0" data-duration="26.47" data-media-start="0" data-track-index="0" muted playsinline></video></div>
+      <div class="live" id="demob-live"><i></i>LIVE DEMO · planning</div>
+      <div class="lt" id="demob-lt2">Choose a budget<small>three interventions</small></div>
+      <div class="lt" id="demob-lt3">The optimizer searches<small>hardening · generators · mobile substations</small></div>
+      <div class="lt" id="demob-lt4">Pune: 89 plans tested<small>simulated impact cut by about 10%</small></div>
+      <div class="lt" id="demob-lt5">Compare up to three plans<small>and see which failure each prevents</small></div>
+    </div>
+    <div class="flash" id="demob-flash"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#demob-flash', { opacity: 1 }, { opacity: 0, duration: 0.32, ease: 'power2.out' }, 0);
+    tl.fromTo('#demob-p1', { scale: 1 }, { scale: 1.02, duration: 26.47, ease: 'none' }, 0);
+    tl.fromTo('#demob-live', { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'expo.out' }, 0.3);
+    tl.fromTo('#demob-lt2', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 3.71);
+    tl.to('#demob-lt2', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 7.01);
+    tl.set('#demob-lt2', { visibility: 'hidden' }, 7.21);
+    tl.fromTo('#demob-lt3', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 7.31);
+    tl.to('#demob-lt3', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 14.290000000000001);
+    tl.set('#demob-lt3', { visibility: 'hidden' }, 14.49);
+    tl.fromTo('#demob-lt4', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 14.59);
+    tl.to('#demob-lt4', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 20.44);
+    tl.set('#demob-lt4', { visibility: 'hidden' }, 20.64);
+    tl.fromTo('#demob-lt5', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 20.74);
+    tl.to('#demob-lt5', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 26.2);
+    tl.set('#demob-lt5', { visibility: 'hidden' }, 26.4);
+    window.__timelines['demob'] = tl;
+  </script>
+</template>

@@ -1,0 +1,65 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #flood { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #1A0A22; }
+  #flood-card { left:160px; top:380px; width:1100px; height:420px; overflow:hidden; background:rgba(255,244,232,0.94); }
+  #flood-water { position:absolute; left:0; right:0; bottom:0; height:100%; background:rgba(46,196,182,0.55); transform-origin:bottom center; }
+  #flood-card svg { position:absolute; inset:0; }
+  #flood-label { position:absolute; left:30px; top:24px; font-size:30px; font-weight:500; }
+  .fpin { position:absolute; width:22px; height:22px; margin:-11px 0 0 -11px; border-radius:50%; background:#1A0A22; }
+  </style>
+  <div id="flood" data-composition-id="flood" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="flood-stage">
+      <div class="push" id="flood-p1"><video id="flood-v0" class="clip media" src="assets/footage/garonne.mp4" data-start="0" data-duration="7.2" data-media-start="4" data-track-index="0" muted playsinline></video></div><div class="veil" id="flood-veil2"></div>
+      <div class="push" id="flood-p4"><video id="flood-v3" class="clip media" src="assets/footage/russian.mp4" data-start="7.2" data-duration="6.9" data-media-start="1" data-track-index="0" muted playsinline></video></div><div class="veil" id="flood-veil5"></div>
+      <div class="kin light  " id="flood-k6" style="top:150px;font-size:96px"><span class="w" id="flood-k6-0">A</span> <span class="w" id="flood-k6-1">simple</span> <span class="w acc" id="flood-k6-2">bathtub</span> <span class="w" id="flood-k6-3">model.</span></div>
+      <div class="card" id="flood-card"><div id="flood-water"></div><svg viewBox="0 0 1100 420"><path d="M0 330 C120 300 200 260 300 250 S480 340 560 340 S700 170 780 180 S960 300 1100 260 L1100 420 L0 420 Z" fill="#C9A27E"/></svg><div class="fpin" id="flood-p0" style="left:150px;top:300px"></div><div class="fpin" id="flood-p1" style="left:380px;top:250px"></div><div class="fpin" id="flood-p2" style="left:560px;top:330px"></div><div class="fpin" id="flood-p3" style="left:760px;top:190px"></div><div class="fpin" id="flood-p4" style="left:960px;top:280px"></div><div id="flood-label">River stage rising over 6 hours</div></div>
+      <div class="chip signal" id="flood-c7" style="left:160px;top:850px">Roads close the same way</div>
+    </div>
+    <div class="flash" id="flood-flash"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#flood-flash', { opacity: 1 }, { opacity: 0, duration: 0.32, ease: 'power2.out' }, 0);
+    tl.fromTo('#flood-p1', { scale: 1 }, { scale: 1.05, duration: 7.2, ease: 'none' }, 0);
+    tl.fromTo('#flood-p4', { scale: 1 }, { scale: 1.05, duration: 6.9, ease: 'none' }, 7.2);
+    tl.fromTo('#flood-k6-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.02);
+    tl.fromTo('#flood-k6-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.26);
+    tl.fromTo('#flood-k6-2', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.9);
+    tl.fromTo('#flood-k6-3', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 1.46);
+    tl.fromTo('#flood-card', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: 'expo.out' }, 3.54);
+    tl.fromTo('#flood-water', { scaleY: 0.05 }, { scaleY: 0.42, duration: 6, ease: 'power1.inOut' }, 3.86);
+    tl.to('#flood-p2', { backgroundColor: '#FF4B2B', scale: 1.5, duration: 0.15 }, 6.48);
+    tl.to('#flood-p0', { backgroundColor: '#FF4B2B', scale: 1.5, duration: 0.15 }, 7.38);
+    tl.to('#flood-p4', { backgroundColor: '#FF4B2B', scale: 1.5, duration: 0.15 }, 8.98);
+    tl.fromTo('#flood-c7', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 12.1);
+    window.__timelines['flood'] = tl;
+  </script>
+</template>

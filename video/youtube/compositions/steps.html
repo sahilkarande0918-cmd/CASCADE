@@ -1,0 +1,63 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #steps { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #FFF4E8; }
+  #steps-ruler { position:absolute; left:160px; right:160px; top:470px; height:70px; }
+  .tick { position:absolute; bottom:0; width:2px; background:rgba(26,10,34,0.35); }
+  #steps-head { position:absolute; left:160px; top:440px; width:6px; height:120px; background:#FF6B5B; }
+  #steps-tank { position:absolute; left:160px; top:640px; width:1000px; height:90px; border-radius:20px; background:#FFD3AE; overflow:hidden; }
+  #steps-fill { position:absolute; inset:0; background:#FFB020; transform-origin:left center; }
+  #steps-tank span { position:absolute; left:30px; top:24px; font-size:34px; font-weight:500; }
+  #steps-fail { position:absolute; left:1220px; top:640px; padding:22px 34px; border-radius:20px; background:#FF4B2B; color:#FFF4E8; font-size:38px; font-weight:500; }
+  </style>
+  <div id="steps" data-composition-id="steps" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="steps-stage">
+      <div class="kin   " id="steps-k0" style="top:160px;font-size:88px"><span class="w" id="steps-k0-0">Every</span> <span class="w acc" id="steps-k0-1">15</span> <span class="w" id="steps-k0-2">minutes,</span> <span class="w" id="steps-k0-3">for</span> <span class="w" id="steps-k0-4">72</span> <span class="w" id="steps-k0-5">hours.</span></div>
+      <div id="steps-ruler"><span class="tick" style="left:0px;height:60px"></span><span class="tick" style="left:22.22px;height:24px"></span><span class="tick" style="left:44.44px;height:24px"></span><span class="tick" style="left:66.67px;height:24px"></span><span class="tick" style="left:88.89px;height:24px"></span><span class="tick" style="left:111.11px;height:24px"></span><span class="tick" style="left:133.33px;height:60px"></span><span class="tick" style="left:155.56px;height:24px"></span><span class="tick" style="left:177.78px;height:24px"></span><span class="tick" style="left:200px;height:24px"></span><span class="tick" style="left:222.22px;height:24px"></span><span class="tick" style="left:244.44px;height:24px"></span><span class="tick" style="left:266.67px;height:60px"></span><span class="tick" style="left:288.89px;height:24px"></span><span class="tick" style="left:311.11px;height:24px"></span><span class="tick" style="left:333.33px;height:24px"></span><span class="tick" style="left:355.56px;height:24px"></span><span class="tick" style="left:377.78px;height:24px"></span><span class="tick" style="left:400px;height:60px"></span><span class="tick" style="left:422.22px;height:24px"></span><span class="tick" style="left:444.44px;height:24px"></span><span class="tick" style="left:466.67px;height:24px"></span><span class="tick" style="left:488.89px;height:24px"></span><span class="tick" style="left:511.11px;height:24px"></span><span class="tick" style="left:533.33px;height:60px"></span><span class="tick" style="left:555.56px;height:24px"></span><span class="tick" style="left:577.78px;height:24px"></span><span class="tick" style="left:600px;height:24px"></span><span class="tick" style="left:622.22px;height:24px"></span><span class="tick" style="left:644.44px;height:24px"></span><span class="tick" style="left:666.67px;height:60px"></span><span class="tick" style="left:688.89px;height:24px"></span><span class="tick" style="left:711.11px;height:24px"></span><span class="tick" style="left:733.33px;height:24px"></span><span class="tick" style="left:755.56px;height:24px"></span><span class="tick" style="left:777.78px;height:24px"></span><span class="tick" style="left:800px;height:60px"></span><span class="tick" style="left:822.22px;height:24px"></span><span class="tick" style="left:844.44px;height:24px"></span><span class="tick" style="left:866.67px;height:24px"></span><span class="tick" style="left:888.89px;height:24px"></span><span class="tick" style="left:911.11px;height:24px"></span><span class="tick" style="left:933.33px;height:60px"></span><span class="tick" style="left:955.56px;height:24px"></span><span class="tick" style="left:977.78px;height:24px"></span><span class="tick" style="left:1000px;height:24px"></span><span class="tick" style="left:1022.22px;height:24px"></span><span class="tick" style="left:1044.44px;height:24px"></span><span class="tick" style="left:1066.67px;height:60px"></span><span class="tick" style="left:1088.89px;height:24px"></span><span class="tick" style="left:1111.11px;height:24px"></span><span class="tick" style="left:1133.33px;height:24px"></span><span class="tick" style="left:1155.56px;height:24px"></span><span class="tick" style="left:1177.78px;height:24px"></span><span class="tick" style="left:1200px;height:60px"></span><span class="tick" style="left:1222.22px;height:24px"></span><span class="tick" style="left:1244.44px;height:24px"></span><span class="tick" style="left:1266.67px;height:24px"></span><span class="tick" style="left:1288.89px;height:24px"></span><span class="tick" style="left:1311.11px;height:24px"></span><span class="tick" style="left:1333.33px;height:60px"></span><span class="tick" style="left:1355.56px;height:24px"></span><span class="tick" style="left:1377.78px;height:24px"></span><span class="tick" style="left:1400px;height:24px"></span><span class="tick" style="left:1422.22px;height:24px"></span><span class="tick" style="left:1444.44px;height:24px"></span><span class="tick" style="left:1466.67px;height:60px"></span><span class="tick" style="left:1488.89px;height:24px"></span><span class="tick" style="left:1511.11px;height:24px"></span><span class="tick" style="left:1533.33px;height:24px"></span><span class="tick" style="left:1555.56px;height:24px"></span><span class="tick" style="left:1577.78px;height:24px"></span><span class="tick" style="left:1600px;height:60px"></span></div><div id="steps-head"></div><div id="steps-tank"><div id="steps-fill"></div><span>Backup: generator · battery · tank</span></div><div id="steps-fail">FAILED at the exact step</div>
+    </div>
+    
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#steps-stage', { scale: 1.14, filter: 'blur(12px)' }, { scale: 1, filter: 'blur(0px)', duration: 0.35, ease: 'expo.out' }, 0);
+    tl.fromTo('#steps-k0-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.28);
+    tl.fromTo('#steps-k0-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 1.96);
+    tl.fromTo('#steps-k0-2', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 2.44);
+    tl.fromTo('#steps-k0-3', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 3.48);
+    tl.fromTo('#steps-k0-4', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 4.04);
+    tl.fromTo('#steps-k0-5', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 4.6);
+    tl.fromTo('#steps-ruler', { opacity: 0, clipPath: 'inset(0 100% 0 0)' }, { opacity: 1, clipPath: 'inset(0 0% 0 0)', duration: 0.8, ease: 'power4.out' }, 0.28);
+    tl.fromTo('#steps-head', { x: 0 }, { x: 1594, duration: 7.6, ease: 'none' }, 1.96);
+    tl.fromTo('#steps-tank', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: 'expo.out' }, 5.48);
+    tl.fromTo('#steps-fill', { scaleX: 1 }, { scaleX: 0, duration: 4.08, ease: 'none' }, 5.48);
+    tl.fromTo('#steps-fail', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: 'expo.out' }, 9.56);
+    window.__timelines['steps'] = tl;
+  </script>
+</template>

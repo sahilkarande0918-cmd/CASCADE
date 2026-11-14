@@ -1,0 +1,100 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #demoa { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #FFF4E8; }
+  
+  </style>
+  <div id="demoa" data-composition-id="demoa" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="demoa-stage">
+      <div class="push" id="demoa-p1"><video id="demoa-v0" class="clip media" src="assets/demo/a.mp4" data-start="0" data-duration="62.46" data-media-start="0" data-track-index="0" muted playsinline></video></div>
+      <div class="live" id="demoa-live"><i></i>LIVE DEMO · cascade-jade-chi.vercel.app</div>
+      <div class="lt" id="demoa-lt2">Central Pune<small>575 mapped places from OpenStreetMap</small></div>
+      <div class="lt" id="demoa-lt3">1,831 dependencies<small>one traced in OSM, the rest inferred</small></div>
+      <div class="lt" id="demoa-lt4">Fail: Parvati Water Treatment Plant<small>failed by hand at T+0</small></div>
+      <div class="lt" id="demoa-lt5">Run the clock<small>72 hours in 15-minute steps</small></div>
+      <div class="lt" id="demoa-lt6">T+8h · water tower runs dry<small>its 8 h tank is empty</small></div>
+      <div class="lt" id="demoa-lt7">T+16h · clinic fails<small>simulated scenario</small></div>
+      <div class="lt" id="demoa-lt8">T+32h · hospital fails<small>after 24 h of stored water</small></div>
+      <div class="lt" id="demoa-lt9">312 facilities fail<small>from one plant · simulated</small></div>
+      <div class="lt" id="demoa-lt10">Each one fails when its backup runs out<small>generator, battery or tank</small></div>
+      <div class="lt" id="demoa-lt11">Why did this fail?<small>the exact chain behind it</small></div>
+      <div class="lt" id="demoa-lt12">Every link is labelled<small>observed · inferred · user-set</small></div>
+      <div class="lt" id="demoa-lt13">Inferred<small>estimated from geography, with a confidence</small></div>
+      <div class="lt" id="demoa-lt14">User-set<small>you changed it</small></div>
+    </div>
+    <div class="flash" id="demoa-flash"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#demoa-flash', { opacity: 1 }, { opacity: 0, duration: 0.32, ease: 'power2.out' }, 0);
+    tl.fromTo('#demoa-p1', { scale: 1 }, { scale: 1.02, duration: 62.46, ease: 'none' }, 0);
+    tl.fromTo('#demoa-live', { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'expo.out' }, 0.3);
+    tl.fromTo('#demoa-lt2', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 2.3);
+    tl.to('#demoa-lt2', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 6.3999999999999995);
+    tl.set('#demoa-lt2', { visibility: 'hidden' }, 6.6);
+    tl.fromTo('#demoa-lt3', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 6.7);
+    tl.to('#demoa-lt3', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 10.3);
+    tl.set('#demoa-lt3', { visibility: 'hidden' }, 10.5);
+    tl.fromTo('#demoa-lt4', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 10.6);
+    tl.to('#demoa-lt4', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 15);
+    tl.set('#demoa-lt4', { visibility: 'hidden' }, 15.2);
+    tl.fromTo('#demoa-lt5', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 15.3);
+    tl.to('#demoa-lt5', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 17.900000000000002);
+    tl.set('#demoa-lt5', { visibility: 'hidden' }, 18.1);
+    tl.fromTo('#demoa-lt6', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 18.2);
+    tl.to('#demoa-lt6', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 21.5);
+    tl.set('#demoa-lt6', { visibility: 'hidden' }, 21.7);
+    tl.fromTo('#demoa-lt7', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 21.8);
+    tl.to('#demoa-lt7', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 23.7);
+    tl.set('#demoa-lt7', { visibility: 'hidden' }, 23.9);
+    tl.fromTo('#demoa-lt8', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 24);
+    tl.to('#demoa-lt8', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 26.1);
+    tl.set('#demoa-lt8', { visibility: 'hidden' }, 26.3);
+    tl.fromTo('#demoa-lt9', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 26.4);
+    tl.to('#demoa-lt9', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 31.400000000000002);
+    tl.set('#demoa-lt9', { visibility: 'hidden' }, 31.6);
+    tl.fromTo('#demoa-lt10', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 31.7);
+    tl.to('#demoa-lt10', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 38.4);
+    tl.set('#demoa-lt10', { visibility: 'hidden' }, 38.6);
+    tl.fromTo('#demoa-lt11', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 38.7);
+    tl.to('#demoa-lt11', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 44.8);
+    tl.set('#demoa-lt11', { visibility: 'hidden' }, 45);
+    tl.fromTo('#demoa-lt12', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 45.1);
+    tl.to('#demoa-lt12', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 49.8);
+    tl.set('#demoa-lt12', { visibility: 'hidden' }, 50);
+    tl.fromTo('#demoa-lt13', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 50.1);
+    tl.to('#demoa-lt13', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 53.199999999999996);
+    tl.set('#demoa-lt13', { visibility: 'hidden' }, 53.4);
+    tl.fromTo('#demoa-lt14', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: 'expo.out' }, 53.5);
+    tl.to('#demoa-lt14', { opacity: 0, x: -30, duration: 0.2, ease: 'power3.in' }, 60.099999999999994);
+    tl.set('#demoa-lt14', { visibility: 'hidden' }, 60.3);
+    window.__timelines['demoa'] = tl;
+  </script>
+</template>

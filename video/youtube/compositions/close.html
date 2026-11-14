@@ -1,0 +1,65 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #close { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #1A0A22; }
+  
+  </style>
+  <div id="close" data-composition-id="close" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="close-stage">
+      <div class="push" id="close-p1"><video id="close-v0" class="clip media" src="assets/footage/lightning.mp4" data-start="0" data-duration="6.9" data-media-start="14" data-track-index="0" muted playsinline></video></div><div class="veil" id="close-veil2"></div>
+      <div class="kin light center " id="close-k3" style="top:420px;font-size:112px"><span class="w" id="close-k3-0">A</span> <span class="w" id="close-k3-1">hidden</span> <span class="w acc" id="close-k3-2">chain</span> <span class="w" id="close-k3-3">of</span> <span class="w" id="close-k3-4">failures</span></div>
+      <div class="kin light center " id="close-k4" style="top:420px;font-size:112px"><span class="w" id="close-k4-0">Watch</span> <span class="w" id="close-k4-1">it.</span> <span class="w acc" id="close-k4-2">Question</span> <span class="w" id="close-k4-3">it.</span> <span class="w" id="close-k4-4">Plan</span> <span class="w" id="close-k4-5">around</span> <span class="w" id="close-k4-6">it.</span></div>
+      <div class="kin light center " id="close-k5" style="top:440px;font-size:140px"><span class="w" id="close-k5-0">Thank</span> <span class="w acc" id="close-k5-1">you.</span></div>
+    </div>
+    
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#close-stage', { y: -240, filter: 'blur(20px)' }, { y: 0, filter: 'blur(0px)', duration: 0.3, ease: 'power4.out' }, 0);
+    tl.fromTo('#close-p1', { scale: 1 }, { scale: 1.05, duration: 6.9, ease: 'none' }, 0);
+    tl.fromTo('#close-k3-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0);
+    tl.fromTo('#close-k3-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.2);
+    tl.fromTo('#close-k3-2', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.68);
+    tl.fromTo('#close-k3-3', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 1.08);
+    tl.fromTo('#close-k3-4', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 1.32);
+    tl.to('#close-k3', { opacity: 0, filter: 'blur(8px)', duration: 0.18, ease: 'power3.in' }, 3.2);
+    tl.fromTo('#close-k4-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 3.4);
+    tl.fromTo('#close-k4-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 3.4);
+    tl.fromTo('#close-k4-2', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 4.04);
+    tl.fromTo('#close-k4-3', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 4.04);
+    tl.fromTo('#close-k4-4', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 4.92);
+    tl.fromTo('#close-k4-5', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 5.24);
+    tl.fromTo('#close-k4-6', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 5.24);
+    tl.to('#close-k4', { opacity: 0, filter: 'blur(8px)', duration: 0.18, ease: 'power3.in' }, 5.81);
+    tl.fromTo('#close-k5-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 5.96);
+    tl.fromTo('#close-k5-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 6.28);
+    window.__timelines['close'] = tl;
+  </script>
+</template>

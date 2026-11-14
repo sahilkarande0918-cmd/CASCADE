@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #FFF4E8; }
+      #root { position: relative; width: 100%; height: 100%; }
+      .pip { position: absolute; right: 48px; bottom: 48px; width: 300px; z-index: 30; font-family: 'Stack Sans Text', sans-serif; }
+      .pip-frame { width: 300px; height: 300px; border-radius: 30px; overflow: hidden; border: 4px solid #FFF4E8; box-shadow: 0 30px 70px -30px rgba(26,10,34,0.7); background: #1A0A22; }
+      .pip-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .pip-name { position: absolute; left: 14px; bottom: 14px; padding: 8px 14px; border-radius: 12px; background: rgba(255,244,232,0.95); font-size: 20px; color: #1A0A22; }
+      .pip-name b { font-weight: 500; margin-right: 8px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="312" data-width="1920" data-height="1080">
+      <div id="intro" data-composition-id="intro" data-composition-src="compositions/intro.html" data-start="0" data-duration="4" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="chain" data-composition-id="chain" data-composition-src="compositions/chain.html" data-start="4" data-duration="13.2" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="montage" data-composition-id="montage" data-composition-src="compositions/montage.html" data-start="17.2" data-duration="10.4" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="silos" data-composition-id="silos" data-composition-src="compositions/silos.html" data-start="27.6" data-duration="10.2" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="tools" data-composition-id="tools" data-composition-src="compositions/tools.html" data-start="37.8" data-duration="13" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="what" data-composition-id="what" data-composition-src="compositions/what.html" data-start="50.8" data-duration="11.5" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="fail" data-composition-id="fail" data-composition-src="compositions/fail.html" data-start="62.3" data-duration="14.3" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="demoa" data-composition-id="demoa" data-composition-src="compositions/demoa.html" data-start="76.6" data-duration="62.5" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="handoff" data-composition-id="handoff" data-composition-src="compositions/handoff.html" data-start="139.1" data-duration="2.7" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="graph" data-composition-id="graph" data-composition-src="compositions/graph.html" data-start="141.8" data-duration="23.8" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="steps" data-composition-id="steps" data-composition-src="compositions/steps.html" data-start="165.6" data-duration="10.5" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="flood" data-composition-id="flood" data-composition-src="compositions/flood.html" data-start="176.1" data-duration="14.1" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="stack" data-composition-id="stack" data-composition-src="compositions/stack.html" data-start="190.2" data-duration="32.6" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="noml" data-composition-id="noml" data-composition-src="compositions/noml.html" data-start="222.8" data-duration="16" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="demob" data-composition-id="demob" data-composition-src="compositions/demob.html" data-start="238.8" data-duration="26.5" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="honest" data-composition-id="honest" data-composition-src="compositions/honest.html" data-start="265.3" data-duration="17.1" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="thin" data-composition-id="thin" data-composition-src="compositions/thin.html" data-start="282.4" data-duration="10.8" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="democ" data-composition-id="democ" data-composition-src="compositions/democ.html" data-start="293.2" data-duration="5.5" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="close" data-composition-id="close" data-composition-src="compositions/close.html" data-start="298.7" data-duration="6.9" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="outro" data-composition-id="outro" data-composition-src="compositions/outro.html" data-start="305.6" data-duration="6.4" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+
+      <div id="pip-sahil" class="pip" data-layout-allow-overflow>
+        <div class="pip-frame"><video id="pip-sahil-v" class="clip" src="assets/speakers/sahil.mp4" data-start="4" data-duration="137.55" data-has-audio="true" data-volume="1" playsinline></video></div>
+        <div class="pip-name"><b>Sahil</b>the what</div>
+      </div>
+
+      <div id="pip-pranav" class="pip" data-layout-allow-overflow>
+        <div class="pip-frame"><video id="pip-pranav-v" class="clip" src="assets/speakers/pranav.mp4" data-start="141.8" data-duration="163.76" data-has-audio="true" data-volume="1" playsinline></video></div>
+        <div class="pip-name"><b>Pranav</b>the how</div>
+      </div>
+      <audio id="music" class="clip" src="assets/music/matio888-cinematic-ambient.mp3" data-start="0" data-media-start="20" data-duration="312" data-track-index="4" data-volume="0.55" data-fade-in="1.5" data-fade-out="4"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      // The corner bubbles pop in when each speaker starts and leave cleanly.
+      tl.fromTo('#pip-sahil .pip-frame, #pip-sahil .pip-name', { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'expo.out', stagger: 0.08 }, 4);
+      tl.fromTo('#pip-pranav .pip-frame, #pip-pranav .pip-name', { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'expo.out', stagger: 0.08 }, 141.8);
+      tl.set('#pip-sahil', { opacity: 0 }, 0);
+      tl.set('#pip-sahil', { opacity: 1 }, 4);
+      tl.to('#pip-sahil', { opacity: 0, scale: 0.8, duration: 0.3, ease: 'power3.in' }, 141.25);
+      tl.set('#pip-pranav', { opacity: 0 }, 0);
+      tl.set('#pip-pranav', { opacity: 1 }, 141.8);
+      tl.to('#pip-pranav', { opacity: 0, scale: 0.8, duration: 0.3, ease: 'power3.in' }, 305.2);
+      const left = -(1920 - 300 - 96);
+      [[76.6, 139.1, '#pip-sahil'], [238.8, 265.3, '#pip-pranav'], [293.20000000000005, 298.70000000000005, '#pip-pranav']].forEach(([a, b, el]) => {
+        tl.to(el, { x: left, duration: 0.45, ease: 'power3.inOut' }, a);
+        tl.to(el, { x: 0, duration: 0.45, ease: 'power3.inOut' }, b);
+      });
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

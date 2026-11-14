@@ -1,0 +1,63 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #thin { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #FFF4E8; }
+  #thin-n { position:absolute; left:160px; top:330px; }
+  #thin-n .num { font-size:320px; color:#FF6B5B; }
+  #thin-n span { display:block; font-size:38px; margin-top:6px; }
+  #thin-card { left:980px; top:300px; width:620px; padding:16px; }
+  #thin-frame { position:relative; width:588px; height:490px; border-radius:18px; overflow:hidden; background:#000; }
+  #thin-card video { position:absolute; inset:0; width:588px; height:490px; object-fit:cover; }
+  #thin-card figcaption { margin:12px 6px 4px; font-size:22px; color:rgba(26,10,34,0.75); }
+  </style>
+  <div id="thin" data-composition-id="thin" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="thin-stage">
+      <div class="kin   " id="thin-k0" style="top:140px;font-size:96px"><span class="w" id="thin-k0-0">The</span> <span class="w" id="thin-k0-1">open</span> <span class="w" id="thin-k0-2">data</span> <span class="w" id="thin-k0-3">is</span> <span class="w acc" id="thin-k0-4">thin.</span></div>
+      <div id="thin-n"><div class="num" id="thin-num">0</div><span>mapped substations in our Pune area</span></div>
+  <figure class="card" id="thin-card"><div id="thin-frame"><video id="thin-v" class="clip" src="assets/footage/nights.mp4" data-start="0" data-duration="7" data-track-index="0" muted playsinline></video><video id="thin-v2" class="clip" src="assets/footage/nights.mp4" data-start="7" data-duration="3.8" data-track-index="0" muted playsinline></video></div><figcaption>Real night-lights imagery of a power outage (NASA Earth Observatory)</figcaption></figure>
+      <div class="chip amber" id="thin-c2" style="left:160px;top:860px">Most links inferred → every one labelled</div>
+    </div>
+    
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#thin-stage', { scale: 1.14, filter: 'blur(12px)' }, { scale: 1, filter: 'blur(0px)', duration: 0.35, ease: 'expo.out' }, 0);
+    tl.fromTo('#thin-k0-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.02);
+    tl.fromTo('#thin-k0-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.26);
+    tl.fromTo('#thin-k0-2', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.5);
+    tl.fromTo('#thin-k0-3', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.82);
+    tl.fromTo('#thin-k0-4', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 1.14);
+    tl.fromTo('#thin-n', { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.9000000000000001);
+    const thin_n1 = { v: 0 }; tl.fromTo(thin_n1, { v: 0 }, { v: 8, duration: 0.8, ease: 'power3.out', onUpdate: () => { document.querySelector('#thin-num').textContent = Math.round(thin_n1.v).toLocaleString('en-US'); } }, 2.1);
+    tl.fromTo('#thin-card', { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: 'expo.out' }, 0.3);
+    tl.fromTo('#thin-c2', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 6.02);
+    window.__timelines['thin'] = tl;
+  </script>
+</template>

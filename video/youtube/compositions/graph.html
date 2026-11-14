@@ -1,0 +1,86 @@
+<template>
+  <style>
+  @font-face { font-family: 'Stack Sans Headline'; src: url('assets/fonts/stack-sans-headline-300.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'Stack Sans Text'; src: url('assets/fonts/stack-sans-text.woff2') format('woff2'); font-weight: 400 500; }
+  .stage { position: absolute; inset: 0; }
+  .cream { background: #FFF4E8; }
+  .media { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  .push { position: absolute; inset: 0; }
+  .veil { position: absolute; inset: 0; background: rgba(26,10,34,0.42); }
+  .veil.soft { background: rgba(26,10,34,0.25); }
+  .flash { position: absolute; inset: 0; background: #FFFFFF; pointer-events: none; }
+  .kin { position: absolute; left: 160px; right: 160px; font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.03em; line-height: 1.02; }
+  .kin.center { text-align: center; }
+  .kin .w { display: inline-block; margin-right: 0.22em; }
+  .kin.light { color: #FFF4E8; }
+  .acc { color: #B83A7A; }
+  .kin.light .acc { color: #FF9A5A; }
+  .eyebrow { position: absolute; left: 160px; top: 120px; padding: 10px 20px; border-radius: 999px; background: #FFB020; font-size: 28px; font-weight: 500; }
+  .chip { position: absolute; padding: 16px 28px; border-radius: 999px; background: #FFD3AE; font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .chip.amber { background: #FFB020; }
+  .chip.lagoon { background: #2EC4B6; }
+  .chip.signal { background: #FF4B2B; color: #FFF4E8; }
+  .chip.glass { background: rgba(255,244,232,0.9); }
+  .card { position: absolute; border-radius: 28px; background: #FFF4E8; box-shadow: 0 40px 90px -40px rgba(26,10,34,0.55); }
+  .lt { position: absolute; left: 780px; top: 48px; padding: 18px 30px; border-radius: 22px; background: rgba(255,244,232,0.95); box-shadow: 0 24px 60px -30px rgba(26,10,34,0.6); font-size: 34px; font-weight: 500; white-space: nowrap; }
+  .lt small { display: block; font-size: 24px; font-weight: 400; color: rgba(26,10,34,0.72); }
+  .live { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; background: #FF4B2B; color: #FFF4E8; font-size: 26px; font-weight: 500; }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: #FFF4E8; display: inline-block; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .num { font-family: 'Stack Sans Headline', sans-serif; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #graph { position: absolute; inset: 0; overflow: hidden; font-family: 'Stack Sans Text', sans-serif; color: #1A0A22; background: #FFF4E8; }
+  .gn { position:absolute; width:26px; height:26px; margin:-13px 0 0 -13px; border-radius:50%; background:#1A0A22; }
+  .gn.hub { width:40px; height:40px; margin:-20px 0 0 -20px; background:#FF6B5B; box-shadow:0 0 0 12px rgba(255,107,91,0.2); }
+  .gl { position:absolute; font-size:24px; white-space:nowrap; transform:translate(-50%, 22px); }
+  #graph svg { position:absolute; inset:0; overflow:visible; }
+  .ge { fill:none; stroke-width:3; stroke-linecap:round; }
+  #graph-gate { position:absolute; right:160px; top:330px; width:600px; }
+  .gate { margin-bottom:26px; padding:26px 32px; border-radius:24px; background:#FFD3AE; font-size:30px; }
+  .gate b { font-family:'Stack Sans Headline',sans-serif; font-weight:300; font-size:58px; display:block; }
+  </style>
+  <div id="graph" data-composition-id="graph" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="stage" id="graph-stage">
+      <div class="kin   " id="graph-k0" style="top:120px;font-size:84px"><span class="w" id="graph-k0-0">Under</span> <span class="w" id="graph-k0-1">the</span> <span class="w" id="graph-k0-2">hood,</span> <span class="w" id="graph-k0-3">it’s</span> <span class="w" id="graph-k0-4">a</span> <span class="w acc" id="graph-k0-5">graph.</span></div>
+      <svg viewBox="0 0 1920 1080"><path id="graph-e0" class="ge" d="M560 560 L300 420" stroke="#FFB020" style="stroke-dasharray:296;stroke-dashoffset:296"/><path id="graph-e1" class="ge" d="M560 560 L820 420" stroke="#FFB020" style="stroke-dasharray:296;stroke-dashoffset:296"/><path id="graph-e2" class="ge" d="M560 560 L820 760" stroke="#FFB020" style="stroke-dasharray:329;stroke-dashoffset:329"/><path id="graph-e3" class="ge" d="M300 420 L300 760" stroke="#2EC4B6" style="stroke-dasharray:340;stroke-dashoffset:340"/><path id="graph-e4" class="ge" d="M300 760 L820 760" stroke="#2EC4B6" style="stroke-dasharray:520;stroke-dashoffset:520"/><path id="graph-e5" class="ge" d="M820 420 L820 760" stroke="#B83A7A" style="stroke-dasharray:340;stroke-dashoffset:340"/><path id="graph-e6" class="ge" d="M820 760 L560 900" stroke="#FF6B5B" style="stroke-dasharray:296;stroke-dashoffset:296"/></svg>
+      <div class="gn hub" id="graph-n0" style="left:560px;top:560px"></div><div class="gl" id="graph-l0" style="left:560px;top:560px">Substation</div>
+      <div class="gn " id="graph-n1" style="left:300px;top:420px"></div><div class="gl" id="graph-l1" style="left:300px;top:420px">Pumping station</div>
+      <div class="gn " id="graph-n2" style="left:820px;top:420px"></div><div class="gl" id="graph-l2" style="left:820px;top:420px">Telecom mast</div>
+      <div class="gn " id="graph-n3" style="left:300px;top:760px"></div><div class="gl" id="graph-l3" style="left:300px;top:760px">Water tower</div>
+      <div class="gn " id="graph-n4" style="left:820px;top:760px"></div><div class="gl" id="graph-l4" style="left:820px;top:760px">Hospital</div>
+      <div class="gn " id="graph-n5" style="left:560px;top:900px"></div><div class="gl" id="graph-l5" style="left:560px;top:900px">Neighbourhood</div>
+      <div class="chip glass" id="graph-c1" style="left:160px;top:270px">nodes</div>
+      <div class="chip glass" id="graph-c2" style="left:330px;top:270px">edges: power · water · access · comms</div>
+      <div id="graph-gate"><div class="gate" id="graph-and"><b>AND</b>needs every input</div><div class="gate" id="graph-or"><b>OR</b>any one input will do</div></div>
+    </div>
+    
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#graph-stage', { y: -240, filter: 'blur(20px)' }, { y: 0, filter: 'blur(0px)', duration: 0.3, ease: 'power4.out' }, 0);
+    tl.fromTo('#graph-k0-0', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.48);
+    tl.fromTo('#graph-k0-1', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.72);
+    tl.fromTo('#graph-k0-2', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 0.88);
+    tl.fromTo('#graph-k0-3', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 1.28);
+    tl.fromTo('#graph-k0-4', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 1.92);
+    tl.fromTo('#graph-k0-5', { opacity: 0, filter: 'blur(10px)', y: 14 }, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.22, ease: 'power4.out' }, 2.16);
+    tl.fromTo('#graph-e0', { strokeDashoffset: 296 }, { strokeDashoffset: 0, duration: 0.5, ease: 'expo.out' }, 5.36);
+    tl.fromTo('#graph-e1', { strokeDashoffset: 296 }, { strokeDashoffset: 0, duration: 0.5, ease: 'expo.out' }, 5.68);
+    tl.fromTo('#graph-e2', { strokeDashoffset: 329 }, { strokeDashoffset: 0, duration: 0.5, ease: 'expo.out' }, 6);
+    tl.fromTo('#graph-e3', { strokeDashoffset: 340 }, { strokeDashoffset: 0, duration: 0.5, ease: 'expo.out' }, 6.32);
+    tl.fromTo('#graph-e4', { strokeDashoffset: 520 }, { strokeDashoffset: 0, duration: 0.5, ease: 'expo.out' }, 6.64);
+    tl.fromTo('#graph-e5', { strokeDashoffset: 340 }, { strokeDashoffset: 0, duration: 0.5, ease: 'expo.out' }, 6.96);
+    tl.fromTo('#graph-e6', { strokeDashoffset: 296 }, { strokeDashoffset: 0, duration: 0.5, ease: 'expo.out' }, 7.28);
+    tl.fromTo('#graph-n0, #graph-l0', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'expo.out' }, 2.72);
+    tl.fromTo('#graph-n1, #graph-l1', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'expo.out' }, 2.9);
+    tl.fromTo('#graph-n2, #graph-l2', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'expo.out' }, 3.08);
+    tl.fromTo('#graph-n3, #graph-l3', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'expo.out' }, 3.26);
+    tl.fromTo('#graph-n4, #graph-l4', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'expo.out' }, 3.44);
+    tl.fromTo('#graph-n5, #graph-l5', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'expo.out' }, 3.62);
+    tl.fromTo('#graph-c1', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 4.64);
+    tl.fromTo('#graph-c2', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 9.92);
+    tl.to('#graph-n4', { backgroundColor: '#FFB020', scale: 1.4, duration: 0.3 }, 15.36);
+    tl.fromTo('#graph-and', { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: 'expo.out' }, 20.16);
+    tl.fromTo('#graph-or', { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: 'expo.out' }, 22.4);
+    window.__timelines['graph'] = tl;
+  </script>
+</template>
